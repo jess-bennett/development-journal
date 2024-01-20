@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import "@picocss/pico";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="container">{children}</main>
+        <main className="container">
+          <Navbar />
+          {children}
+        </main>
       </body>
     </html>
   );
