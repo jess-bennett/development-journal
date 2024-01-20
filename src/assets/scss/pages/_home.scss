@@ -1,0 +1,10 @@
+// Abstracts
+@use "../abstracts" as *;
+
+/* ======== */
+/* Home CSS */
+/* ======== */
+
+.container {
+  min-height: calc(100vh - 82px);
+}
