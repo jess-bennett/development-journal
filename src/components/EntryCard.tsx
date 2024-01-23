@@ -17,12 +17,12 @@ async function deleteEntry(id: string) {
 }
 export default function EntryCard({ id, title, content, mood }: Props) {
   return (
-    <article>
+    <article className="c-entry-card">
       <header>
-        <h2>{title}</h2>
+        <h2 className="c-entry-card__header">{title}</h2>
       </header>
-      <p>{content}</p>
-      <footer>
+      <p className="c-entry-card__content">{content}</p>
+      <footer className="c-entry-card__footer">
         How I feel at the moment: <strong>{mood}</strong>
         <button onClick={() => deleteEntry(id)}>Delete</button>
         <Link

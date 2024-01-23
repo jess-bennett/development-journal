@@ -1,0 +1,33 @@
+// /* ==========================================================================
+//    #TYPOGRAPHY-VARIABLES
+//    ========================================================================== */
+
+@font-face {
+  font-family: "Dosis";
+  src: url("../../fonts/Dosis-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Averia";
+  src: url("../../fonts/AveriaSansLibre-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "PTSans";
+  src: url("../../fonts/PTSansCaption-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+$font-headings: "Dosis", sans-serif;
+$font-subheadings: "Averia", sans-serif;
+$font-body: "PTSans", sans-serif;
+$base-font-size: 62.5%;
+$letter-spacing: 0.1em;
+
+//font size and radius
+$small: 1rem;
+$medium: 1.5rem;
+$large: 2rem;
+$x-large: 2.5rem;
+$xx-large: 3rem;

@@ -1,0 +1,20 @@
+.c-site-header {
+  background: map-get($colors-papayaOrange, background);
+  color: map-get($colors-papayaOrange, foreground);
+  font-family: $font-headings;
+  font-size: $xx-large;
+  min-height: 3rem;
+  border-radius: map-get($spacers, 6);
+  li {
+    display: inline;
+
+    a {
+      font-family: $font-subheadings;
+      text-decoration: none;
+      padding: 14px 16px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
