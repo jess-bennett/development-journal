@@ -2,36 +2,16 @@
    #SPACING-VARIABLES
    ========================================================================== */
 
-$spacer: 1rem !default;
-$spacers: (
-  0: 0,
-  1: (
-    $spacer * 0.125,
-  ),
-  // 2px
-  2:
-    (
-      $spacer * 0.25,
-    ),
-  // 4px
-  3:
-    (
-      $spacer * 0.375,
-    ),
-  // 6px
-  4:
-    (
-      $spacer * 0.5,
-    ),
-  // 8px
-  5:
-    (
-      $spacer * 0.75,
-    ),
-  // 12px
-  6:
-    (
-      $spacer * 1,
-    )
-    // 16px,
+//spacing-size variables
+$st-screen-width: 1440;
+$st-body: 20;
+$st-body-min: 1rem;
+$st-body-max: 1.375rem;
+$st-body-vw: $st-body / $st-screen-width * 100vw;
+
+$st-sizes: (
+  wide: 40,
+  normal: 35,
+  moderate: 30,
+  narrow: 25,
 );

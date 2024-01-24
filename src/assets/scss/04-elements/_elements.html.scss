@@ -1,4 +1,14 @@
+:root {
+  --ft-size-body: clamp(#{$ft-body-min}, #{$ft-body-vw}, #{$ft-body-max});
+  @each $name, $size in $ft-sizes {
+    @include fontSizeVar($name, $size);
+  }
+  --st-size-body: clamp(#{$st-body-min}, #{$st-body-vw}, #{$st-body-max});
+  @each $name, $size in $st-sizes {
+    @include spacingSizeVar($name, $size);
+  }
+}
+
 html {
   box-sizing: border-box;
-  font-size: $base-font-size;
 }

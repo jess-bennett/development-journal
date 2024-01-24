@@ -2,18 +2,37 @@
   background: map-get($colors-papayaOrange, background);
   color: map-get($colors-papayaOrange, foreground);
   font-family: $font-headings;
-  font-size: $xx-large;
-  min-height: 3rem;
-  border-radius: map-get($spacers, 6);
-  li {
-    display: inline;
+  min-height: 5rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  h1 {
+    font-size: var(--ft-size-h1);
+    margin: 0;
+    text-transform: uppercase;
+  }
 
-    a {
-      font-family: $font-subheadings;
-      text-decoration: none;
-      padding: 14px 16px;
-      &:hover {
-        text-decoration: underline;
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+
+      li {
+        margin-left: var(--st-size-wide);
+
+        a {
+          font-family: $font-subheadings;
+          font-size: var(--ft-size-h2);
+          color: map-get($colors-papayaOrange, foreground);
+          @include anchorHover(
+            map-get($colors-papayaOrange, foreground),
+            map-get($colors-pastelPink, background),
+            map-get($colors-teal, background),
+            map-get($colors-butterYellow, background)
+          );
+        }
       }
     }
   }

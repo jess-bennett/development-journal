@@ -10,16 +10,22 @@ $bkp-wide: 1280px;
 $bkp-hd: 1920px;
 
 $breakpoints: (
-  mobile: $bkp-mobile,
-  phablet: $bkp-phablet,
-  tablet: $bkp-tablet,
-  desktop: $bkp-desktop,
-  wide: $bkp-wide,
-  hd: $bkp-hd,
+  mobile: "screen and (min-width: #{$bkp-mobile})",
+  phablet: "screen and (min-width: #{$bkp-phablet})",
+  tablet: "screen and (min-width: #{$bkp-tablet})",
+  desktop: "screen and (min-width: #{$bkp-desktop})",
+  wide: "screen and (min-width: #{$bkp-wide})",
+  hd: "screen and (min-width: #{$bkp-hd})",
 );
 
 // /**
 //  * Breakpoints needed for sass-mq mixin
 //  */
 
-$mq-breakpoints: $breakpoints !default;
+@mixin responsive($size) {
+  $query: map-get($breakpoints, $size);
+
+  @media #{$query} {
+    @content;
+  }
+}

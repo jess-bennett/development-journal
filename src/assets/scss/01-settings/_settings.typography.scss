@@ -22,12 +22,18 @@
 $font-headings: "Dosis", sans-serif;
 $font-subheadings: "Averia", sans-serif;
 $font-body: "PTSans", sans-serif;
-$base-font-size: 62.5%;
-$letter-spacing: 0.1em;
 
-//font size and radius
-$small: 1rem;
-$medium: 1.5rem;
-$large: 2rem;
-$x-large: 2.5rem;
-$xx-large: 3rem;
+//font-size variables
+$ft-screen-width: 1440;
+$ft-body: 20;
+$ft-body-min: 1rem;
+$ft-body-max: 1.375rem;
+$ft-body-vw: $ft-body / $ft-screen-width * 100vw;
+
+$ft-sizes: (
+  h1: 40,
+  h2: 35,
+  h3: 30,
+  h4: 25,
+  small: 20,
+);

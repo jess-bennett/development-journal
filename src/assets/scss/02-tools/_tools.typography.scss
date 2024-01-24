@@ -1,0 +1,7 @@
+@mixin fontSizeVar($name, $size) {
+  $proportion: $size / $ft-body;
+  $min: $ft-body-min * $proportion;
+  $max: $ft-body-max * $proportion;
+  $vw: $ft-body-vw * $proportion;
+  --ft-size-#{$name}: clamp(#{$min}, #{$vw}, #{$max});
+}

@@ -1,11 +1,13 @@
 .c-entry-card {
   max-width: 30vw;
   background: map-get($colors-teal, background);
-  padding: map-get($spacers, 6);
-  border-radius: map-get($spacers, 6);
+  padding: var(--st-size-wide);
+  margin-top: var(--st-size-wide);
+  border-radius: 2rem;
 
   &__content {
     font-family: $font-body;
+    font-size: var(--ft-size-body);
   }
 
   &__footer {
@@ -14,7 +16,7 @@
 
   &__header {
     font-family: $font-headings;
-    font-size: $large;
+    font-size: var(--ft-size-h2);
     margin: 0;
   }
 }

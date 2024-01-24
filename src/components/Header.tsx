@@ -4,11 +4,9 @@ import React from "react";
 const Header = () => {
   return (
     <header className="c-site-header">
+      <h1>Journal App</h1>
       <nav>
         <ul>
-          <li>
-            <strong>Journal App</strong>
-          </li>
           <li>
             <Link href="/entry/create" role={"button"}>
               New Entry
