@@ -41,25 +41,25 @@ const options = {
 };
 
 const skillIcons: Record<Skill, React.JSX.Element> = {
-  AI: <GiArtificialIntelligence />,
-  BUG_FIXES: <GrBug />,
-  CSS: <SiCss3 />,
-  DATABASES: <GiDatabase />,
-  GIT: <SiGit />,
-  EXTERNAL_LIBRARIES: <GrCubes />,
-  HTML: <SiHtml5 />,
-  JAVASCRIPT: <SiJavascript />,
-  JEST: <SiJest />,
-  LEGACY_CODE: <GiSkullCrossedBones />,
-  MISC: <VscSymbolMisc />,
-  NEXT_JS: <SiNextdotjs />,
-  NODE_JS: <BiLogoNodejs />,
-  NPM: <SiNpm />,
-  REACT: <SiReact />,
-  REST_APIS: <VscCloud />,
-  SASS: <SiSass />,
-  SQL: <TbSql />,
-  TYPESCRIPT: <SiTypescript />,
+  AI: <GiArtificialIntelligence title="AI" />,
+  BUG_FIXES: <GrBug title="Bug fixes" />,
+  CSS: <SiCss3 title="CSS" />,
+  DATABASES: <GiDatabase title="Databases" />,
+  GIT: <SiGit title="Git" />,
+  EXTERNAL_LIBRARIES: <GrCubes title="External libraries" />,
+  HTML: <SiHtml5 title="HTML" />,
+  JAVASCRIPT: <SiJavascript title="JavaScript" />,
+  JEST: <SiJest title="Jest" />,
+  LEGACY_CODE: <GiSkullCrossedBones title="Legacy code" />,
+  MISC: <VscSymbolMisc title="Misc" />,
+  NEXT_JS: <SiNextdotjs title="Next.js" />,
+  NODE_JS: <BiLogoNodejs title="Node.js" />,
+  NPM: <SiNpm title="Npm" />,
+  REACT: <SiReact title="React" />,
+  REST_APIS: <VscCloud title="Rest APIs" />,
+  SASS: <SiSass title="Sass" />,
+  SQL: <TbSql title="SQL" />,
+  TYPESCRIPT: <SiTypescript title="TypeScript" />,
 };
 
 async function deleteEntry(id: string) {
@@ -90,11 +90,11 @@ export default function EntryCard({
   return (
     <article className="c-entry-card">
       <header className="c-entry-card__header">
-        {skillsArray.map((skill, idx) => (
-          <p key={idx} className="c-entry-card__skill">
-            {skillIcons[skill]}
-          </p>
-        ))}
+        <div className="c-entry-card__skill">
+          {skillsArray.map((skill, idx) => (
+            <span key={idx}>{skillIcons[skill]}</span>
+          ))}
+        </div>
         <p className="c-entry-card__date">
           {createdAt.toLocaleString("en-GB", options)}
         </p>

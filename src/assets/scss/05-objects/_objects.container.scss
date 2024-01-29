@@ -5,4 +5,5 @@
 .o-container {
   display: flex;
   gap: var(--st-size-narrow);
+  flex-wrap: wrap;
 }

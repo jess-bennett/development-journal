@@ -21,6 +21,8 @@
   }
 
   &__footer {
+    display: flex;
+    justify-content: flex-end;
     font-family: $font-subheadings;
     text-align: right;
   }
@@ -44,5 +46,9 @@
   &__skill {
     margin: 0;
     font-size: var(--ft-size-h1);
+
+    span {
+      margin-right: var(--st-size-narrow);
+    }
   }
 }

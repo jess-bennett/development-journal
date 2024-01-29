@@ -6,6 +6,9 @@
   border-radius: 50%;
   width: var(--st-size-wide);
   height: var(--st-size-wide);
-  display: inline-block;
   margin-left: var(--st-size-narrow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--ft-size-h4);
 }
