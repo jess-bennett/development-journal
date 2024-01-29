@@ -1,5 +1,5 @@
 import React from "react";
-import { Mood, PrismaClient } from "@prisma/client";
+import { Skill, PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
@@ -14,13 +14,13 @@ export default async function EditPage({
     const formData = {
       title: data.get("title")!.toString(),
       content: data.get("content")!.toString(),
-      mood: data.get("mood")! as Mood,
+      skill: data.get("skill")! as Skill,
     };
     await prisma.entry.update({ data: formData, where: { id } });
     redirect("/");
   }
   const entry = await prisma.entry.findUnique({ where: { id } });
-  const moods = Object.values(Mood);
+  const skills = Object.values(Skill);
   return (
     <form action={editEntry}>
       <label htmlFor="title">Title</label>
@@ -38,13 +38,13 @@ export default async function EditPage({
         placeholder="Content"
         defaultValue={entry?.content}
       />
-      <select name="mood" defaultValue={entry?.mood}>
+      <select name="skill" defaultValue={entry?.skill}>
         <option value="" disabled selected>
-          Select a mood
+          Select a skill
         </option>
-        {moods.map((mood, idx) => (
-          <option key={idx} value={mood}>
-            {mood}
+        {skills.map((skill, idx) => (
+          <option key={idx} value={skill}>
+            {skill}
           </option>
         ))}
       </select>

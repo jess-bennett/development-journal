@@ -2,11 +2,7 @@
 //    #CONTAINER-OBJECT
 //    ========================================================================== */
 
-// .o-container {
-//   // @include spacing-sides;
-
-//   width: 100%;
-//   max-width: 1200px;
-//   margin-right: auto;
-//   margin-left: auto;
-// }
+.o-container {
+  display: flex;
+  gap: var(--st-size-narrow);
+}

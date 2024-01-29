@@ -1,22 +1,48 @@
 .c-entry-card {
-  max-width: 30vw;
+  min-width: 30vw;
   background: map-get($colors-teal, background);
+  color: $color-fontBody;
   padding: var(--st-size-wide);
   margin-top: var(--st-size-wide);
   border-radius: 2rem;
+  flex-grow: 1;
+  flex-basis: 0;
 
   &__content {
     font-family: $font-body;
     font-size: var(--ft-size-body);
   }
 
+  &__date {
+    text-align: right;
+    font-family: $font-body;
+    font-size: var(--ft-size-small);
+    margin: 0;
+  }
+
   &__footer {
     font-family: $font-subheadings;
+    text-align: right;
   }
 
   &__header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: var(--st-size-narrow);
+  }
+
+  &__title {
+    background: map-get($colors-butterYellow, background);
+    color: map-get($colors-butterYellow, foreground);
     font-family: $font-headings;
     font-size: var(--ft-size-h2);
     margin: 0;
+    text-align: center;
+    border-radius: 1rem;
+  }
+
+  &__skill {
+    margin: 0;
+    font-size: var(--ft-size-h1);
   }
 }

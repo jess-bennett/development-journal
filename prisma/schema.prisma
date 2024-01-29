@@ -13,14 +13,27 @@ model Entry{
   title String
   content String
   createdAt DateTime @default(now())
-  mood Mood
+  skill Skill[]
 }
 
-enum Mood{
-  Joyful
-  Excited
-  Angry
-  Depressed
-  Exhausted
-  Anxious
+enum Skill {
+  AI
+  BUG_FIXES
+  CSS
+  DATABASES
+  GIT
+  EXTERNAL_LIBRARIES
+  HTML
+  JAVASCRIPT
+  JEST
+  LEGACY_CODE
+  MISC
+  NEXT_JS
+  NODE_JS
+  NPM
+  REACT
+  REST_APIS
+  SASS
+  SQL
+  TYPESCRIPT
 }

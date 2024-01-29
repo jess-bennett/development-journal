@@ -1,5 +1,5 @@
 import React from "react";
-import { Mood, PrismaClient } from "@prisma/client";
+import { Skill, PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
@@ -9,27 +9,28 @@ async function createEntry(data: FormData) {
   const formData = {
     title: data.get("title")!.toString(),
     content: data.get("content")!.toString(),
-    mood: data.get("mood")! as Mood,
+    skill: Array.from(data.getAll("skills")!) as Skill[],
   };
+  console.log(formData);
   await prisma.entry.create({ data: formData });
   redirect("/");
 }
 
 export default function CreatePage() {
-  const moods = Object.values(Mood);
+  const skills = Object.values(Skill);
   return (
-    <form action={createEntry}>
+    <form action={createEntry} method="POST">
       <label htmlFor="title">Title</label>
       <input type="text" name="title" id="title" placeholder="Title" />
       <label htmlFor="content">Content</label>
       <textarea name="content" id="content" placeholder="Content" />
-      <select name="mood">
-        <option value="" disabled selected>
-          Select a mood
+      <select defaultValue={["DEFAULT"]} name="skills" multiple>
+        <option value="DEFAULT" disabled>
+          Choose a skill ...
         </option>
-        {moods.map((mood, idx) => (
-          <option key={idx} value={mood}>
-            {mood}
+        {skills.map((skill, idx) => (
+          <option key={idx} value={skill}>
+            {skill}
           </option>
         ))}
       </select>
