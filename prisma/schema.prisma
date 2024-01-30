@@ -18,6 +18,7 @@ model Entry{
 
 enum Skill {
   AI
+  ANALYTICS
   BUG_FIXES
   CSS
   DATABASES

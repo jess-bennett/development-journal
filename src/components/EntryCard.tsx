@@ -13,6 +13,7 @@ import { GrBug, GrCubes } from "react-icons/gr";
 import {
   SiCss3,
   SiGit,
+  SiGoogleanalytics,
   SiHtml5,
   SiJavascript,
   SiJest,
@@ -42,6 +43,7 @@ const options = {
 
 const skillIcons: Record<Skill, React.JSX.Element> = {
   AI: <GiArtificialIntelligence title="AI" />,
+  ANALYTICS: <SiGoogleanalytics title="Analytics" />,
   BUG_FIXES: <GrBug title="Bug fixes" />,
   CSS: <SiCss3 title="CSS" />,
   DATABASES: <GiDatabase title="Databases" />,
@@ -73,6 +75,20 @@ function toArray<T>(item: T | T[]): T[] {
   return Array.isArray(item) ? item : [item];
 }
 
+const formatContent = (content: string) => {
+  const formattedContent = content.replace(/`([^`]+)`/g, (_, match) => {
+    // Wrap the matched text in a <code> element
+    return `<code>${match}</code>`;
+  });
+
+  return (
+    <p
+      className="c-entry-card__content"
+      dangerouslySetInnerHTML={{ __html: formattedContent }}
+    />
+  );
+};
+
 export default function EntryCard({
   id,
   title,
@@ -87,6 +103,7 @@ export default function EntryCard({
     day: "numeric",
   };
   const skillsArray = toArray(skill);
+  const formattedContent = formatContent(content);
   return (
     <article className="c-entry-card">
       <header className="c-entry-card__header">
@@ -100,7 +117,7 @@ export default function EntryCard({
         </p>
       </header>
       <h2 className="c-entry-card__title">{title}</h2>
-      <p className="c-entry-card__content">{content}</p>
+      <p className="c-entry-card__content">{formattedContent}</p>
       <footer className="c-entry-card__footer">
         <button className="c-btn" onClick={() => deleteEntry(id)}>
           <FiDelete />

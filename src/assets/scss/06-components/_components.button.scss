@@ -11,4 +11,8 @@
   justify-content: center;
   font-size: var(--ft-size-h4);
   cursor: pointer;
+
+  &:hover {
+    background: $color-fontBody;
+  }
 }
