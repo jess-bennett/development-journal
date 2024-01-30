@@ -4,7 +4,9 @@ import React from "react";
 const Header = () => {
   return (
     <header className="c-site-header">
-      <h1>Journal App</h1>
+      <Link href="/">
+        <h1>Journal App</h1>
+      </Link>
       <nav>
         <ul>
           <li>

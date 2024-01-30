@@ -1,6 +1,5 @@
 .c-site-header {
   background: map-get($colors-papayaOrange, background);
-  color: map-get($colors-papayaOrange, foreground);
   font-family: $font-headings;
   min-height: 5rem;
   border-radius: 1rem;
@@ -9,6 +8,7 @@
   align-items: center;
   padding: 1rem;
   h1 {
+    color: map-get($colors-papayaOrange, foreground);
     font-size: var(--ft-size-h1);
     margin: 0;
     text-transform: uppercase;

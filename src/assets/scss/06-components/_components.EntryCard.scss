@@ -11,6 +11,45 @@
   &__content {
     font-family: $font-body;
     font-size: var(--ft-size-body);
+
+    & textarea {
+      background: none;
+      border: none;
+      width: 100%;
+      resize: none;
+      margin-top: var(--st-size-wide);
+    }
+
+    & select {
+      background-color: transparent;
+      border: 0;
+      width: 100%;
+      overflow-y: auto;
+      display: inline-block;
+      margin-bottom: var(--st-size-wide);
+      color: $color-fontBody;
+
+      &::-webkit-scrollbar {
+        width: 20px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: map-get($colors-teal, foreground);
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: $color-fontBody;
+      }
+    }
   }
 
   &__date {
@@ -41,6 +80,13 @@
     margin: 0;
     text-align: center;
     border-radius: 1rem;
+
+    & input {
+      background: none;
+      border: none;
+      text-align: center;
+      width: 100%;
+    }
   }
 
   &__skill {

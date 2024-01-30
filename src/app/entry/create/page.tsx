@@ -1,6 +1,7 @@
 import React from "react";
 import { Skill, PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
+import { FiSend } from "react-icons/fi";
 
 const prisma = new PrismaClient();
 
@@ -19,22 +20,37 @@ async function createEntry(data: FormData) {
 export default function CreatePage() {
   const skills = Object.values(Skill);
   return (
-    <form action={createEntry} method="POST">
-      <label htmlFor="title">Title</label>
-      <input type="text" name="title" id="title" placeholder="Title" />
-      <label htmlFor="content">Content</label>
-      <textarea name="content" id="content" placeholder="Content" />
-      <select defaultValue={["DEFAULT"]} name="skills" multiple>
-        <option value="DEFAULT" disabled>
-          Choose a skill ...
-        </option>
-        {skills.map((skill, idx) => (
-          <option key={idx} value={skill}>
-            {skill}
-          </option>
-        ))}
-      </select>
-      <button type="submit">Create</button>
+    <form className="c-entry-card" action={createEntry} method="POST">
+      <div className="c-entry-card__title">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          required
+        />
+      </div>
+      <div className="c-entry-card__content">
+        <textarea name="content" id="content" placeholder="Content" required />
+        <select
+          className="c-entry-card__content"
+          defaultValue={["DEFAULT"]}
+          name="skills"
+          multiple
+          required
+        >
+          {skills.map((skill, idx) => (
+            <option key={idx} value={skill}>
+              {skill}
+            </option>
+          ))}
+        </select>
+      </div>
+      <footer className="c-entry-card__footer">
+        <button className="c-btn" type="submit">
+          <FiSend />
+        </button>
+      </footer>
     </form>
   );
 }
