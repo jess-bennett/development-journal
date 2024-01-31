@@ -77,7 +77,6 @@ function toArray<T>(item: T | T[]): T[] {
 
 const formatContent = (content: string) => {
   const formattedContent = content.replace(/`([^`]+)`/g, (_, match) => {
-    // Wrap the matched text in a <code> element
     return `<code>${match}</code>`;
   });
 
@@ -85,7 +84,7 @@ const formatContent = (content: string) => {
     <p
       className="c-entry-card__content"
       dangerouslySetInnerHTML={{ __html: formattedContent }}
-    />
+    ></p>
   );
 };
 
