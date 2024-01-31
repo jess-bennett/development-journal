@@ -116,7 +116,7 @@ export default function EntryCard({
         </p>
       </header>
       <h2 className="c-entry-card__title">{title}</h2>
-      <p className="c-entry-card__content">{formattedContent}</p>
+      {formattedContent}
       <footer className="c-entry-card__footer">
         <button className="c-btn" onClick={() => deleteEntry(id)}>
           <FiDelete />

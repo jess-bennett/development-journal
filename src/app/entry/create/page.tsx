@@ -1,26 +1,35 @@
+"use client";
 import React from "react";
+import { useEffect } from "react";
 import { Skill, PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { FiSend } from "react-icons/fi";
 
-const prisma = new PrismaClient();
-
-async function createEntry(data: FormData) {
-  "use server";
-  const formData = {
-    title: data.get("title")!.toString(),
-    content: data.get("content")!.toString(),
-    skill: Array.from(data.getAll("skills")!) as Skill[],
-  };
-  console.log(formData);
-  await prisma.entry.create({ data: formData });
-  redirect("/");
-}
-
 export default function CreatePage() {
   const skills = Object.values(Skill);
+
+  const submitData = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData(e.target as HTMLFormElement);
+      const entryData = {
+        title: formData.get("title")!.toString(),
+        content: formData.get("content")!.toString(),
+        skill: Array.from(formData.getAll("skills")!) as Skill[],
+      };
+      await fetch("/api/entry/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(entryData),
+      });
+      redirect("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <form className="c-entry-card" action={createEntry} method="POST">
+    <form className="c-entry-card" onSubmit={submitData}>
       <div className="c-entry-card__title">
         <input
           type="text"
