@@ -26,13 +26,13 @@ import {
 import { TbSql } from "react-icons/tb";
 import { VscCloud, VscSymbolMisc } from "react-icons/vsc";
 
-type Props = {
+export interface Entry {
   id: string;
   title: string;
   content: string;
   createdAt: Date;
-  skill: Skill;
-};
+  skill: Skill[];
+}
 
 const options = {
   weekday: "short",
@@ -88,13 +88,7 @@ const formatContent = (content: string) => {
   );
 };
 
-export default function EntryCard({
-  id,
-  title,
-  content,
-  createdAt,
-  skill,
-}: Props) {
+const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
@@ -127,4 +121,6 @@ export default function EntryCard({
       </footer>
     </article>
   );
-}
+};
+
+export default EntryCard;

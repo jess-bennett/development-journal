@@ -3,10 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export async function POST(
-  req: NextRequest,
-  res: NextResponse
-): Promise<NextResponse> {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     if (req.headers.get("content-type") !== "application/json") {
       return new NextResponse("Unsupported Media Type", { status: 415 });

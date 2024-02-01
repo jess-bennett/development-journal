@@ -1,13 +1,30 @@
+"use client";
 export const revalidate = 10;
-import EntryCard from "@/src/components/EntryCard";
-import prisma from "@/src/lib/prisma";
+import React, { useEffect, useState } from "react";
+import EntryCard, { Entry } from "@/src/components/EntryCard";
 
-export default async function Home() {
-  const entries = await prisma.entry.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+const Home = () => {
+  const [entries, setEntries] = useState<Entry[]>([]);
+
+  useEffect(() => {
+    const fetchEntries = async () => {
+      try {
+        const response = await fetch("/api/entry/read");
+        if (response.ok) {
+          const data = await response.json();
+          setEntries(data);
+        } else {
+          console.error("Failed to fetch entries");
+        }
+      } catch (error) {
+        console.error("Error fetching entries:", error);
+      }
+    };
+
+    // Call the fetchEntries function
+    fetchEntries();
+  }, []); // The empty dependency array ensures that the effect runs once when the component mounts
+
   return (
     <>
       {entries.map((entry) => (
@@ -15,4 +32,6 @@ export default async function Home() {
       ))}
     </>
   );
-}
+};
+
+export default Home;

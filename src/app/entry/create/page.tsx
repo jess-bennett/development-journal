@@ -5,7 +5,7 @@ import { Skill, PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { FiSend } from "react-icons/fi";
 
-export default function CreatePage() {
+const CreatePage = () => {
   const skills = Object.values(Skill);
 
   const submitData = async (e: React.SyntheticEvent) => {
@@ -62,4 +62,6 @@ export default function CreatePage() {
       </footer>
     </form>
   );
-}
+};
+
+export default CreatePage;
