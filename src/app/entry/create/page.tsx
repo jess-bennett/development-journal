@@ -17,6 +17,7 @@ const CreatePage = () => {
         content: formData.get("content")!.toString(),
         skill: Array.from(formData.getAll("skills")!) as Skill[],
       };
+      console.log(entryData);
       await fetch("/api/entry/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,7 +44,6 @@ const CreatePage = () => {
         <textarea name="content" id="content" placeholder="Content" required />
         <select
           className="c-entry-card__content"
-          defaultValue={["DEFAULT"]}
           name="skills"
           multiple
           required
