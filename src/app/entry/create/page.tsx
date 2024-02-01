@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useEffect } from "react";
 import { Skill, PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { FiSend } from "react-icons/fi";

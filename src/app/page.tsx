@@ -21,9 +21,8 @@ const Home = () => {
       }
     };
 
-    // Call the fetchEntries function
     fetchEntries();
-  }, []); // The empty dependency array ensures that the effect runs once when the component mounts
+  }, []);
 
   return (
     <>
