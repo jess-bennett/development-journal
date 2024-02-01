@@ -34,13 +34,6 @@ export interface Entry {
   skill: Skill[];
 }
 
-const options = {
-  weekday: "short",
-  year: "numeric",
-  month: "2-digit",
-  day: "numeric",
-};
-
 const skillIcons: Record<Skill, React.JSX.Element> = {
   AI: <GiArtificialIntelligence title="AI" />,
   ANALYTICS: <SiGoogleanalytics title="Analytics" />,

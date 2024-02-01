@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
-import { Skill, PrismaClient } from "@prisma/client";
-import { redirect } from "next/navigation";
+import { Skill } from "@prisma/client";
+import { useRouter } from "next/navigation";
 import { FiSend } from "react-icons/fi";
 
 const CreatePage = () => {
   const skills = Object.values(Skill);
+  const router = useRouter();
 
   const submitData = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const CreatePage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(entryData),
       });
-      redirect("/");
+      router.push("/");
     } catch (error) {
       console.error(error);
     }
