@@ -4,6 +4,7 @@ import { Entry, Skill } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { NextRequest } from "next/server";
+import { RxUpdate } from "react-icons/rx";
 
 const EditPage = (req: NextRequest) => {
   const searchParams = useSearchParams();
@@ -49,45 +50,51 @@ const EditPage = (req: NextRequest) => {
   };
   return (
     <form
+      className="c-entry-card"
       onSubmit={(e) => {
         e.preventDefault();
         editEntry(e);
       }}
     >
-      <label htmlFor="title">Title</label>
-      <input
-        type="text"
-        name="title"
-        id="title"
-        placeholder="Title"
-        defaultValue={entry?.title}
-      />
-      <label htmlFor="content">Content</label>
-      <textarea
-        name="content"
-        id="content"
-        placeholder="Content"
-        defaultValue={entry?.content}
-      />
-      <select
-        className="c-entry-card__content"
-        defaultValue={entry?.skill || ["DEFAULT"]} // Preselect entry skills or default value if not available
-        name="skills"
-        multiple
-        required
-      >
-        {skills.map((skill, idx) => (
-          <option
-            key={idx}
-            value={skill}
-            selected={entry?.skill.includes(skill)}
-          >
-            {skill}
-          </option>
-        ))}
-      </select>
-
-      <button type="submit">Update</button>
+      <div className="c-entry-card__title">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          defaultValue={entry?.title}
+        />
+      </div>
+      <div className="c-entry-card__content">
+        <textarea
+          name="content"
+          id="content"
+          placeholder="Content"
+          defaultValue={entry?.content}
+        />
+        <select
+          className="c-entry-card__content"
+          defaultValue={entry?.skill || ["DEFAULT"]} // Preselect entry skills or default value if not available
+          name="skills"
+          multiple
+          required
+        >
+          {skills.map((skill, idx) => (
+            <option
+              key={idx}
+              value={skill}
+              selected={entry?.skill.includes(skill)}
+            >
+              {skill}
+            </option>
+          ))}
+        </select>
+      </div>
+      <footer className="c-entry-card__footer">
+        <button className="c-btn" type="submit">
+          <RxUpdate />
+        </button>
+      </footer>
     </form>
   );
 };
