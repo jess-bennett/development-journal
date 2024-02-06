@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Entry, Skill } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { NextRequest } from "next/server";
 import { RxUpdate } from "react-icons/rx";
+
+import { Entry, Skill } from "@prisma/client";
 
 const EditPage = (req: NextRequest) => {
   const searchParams = useSearchParams();

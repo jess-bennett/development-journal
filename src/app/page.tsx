@@ -1,6 +1,7 @@
 "use client";
 export const revalidate = 10;
 import React, { useEffect, useState } from "react";
+
 import EntryCard, { Entry } from "@/src/components/EntryCard";
 
 const Home = () => {

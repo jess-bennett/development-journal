@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import { Skill } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { FiSend } from "react-icons/fi";
+
+import { Skill } from "@prisma/client";
 
 const CreatePage = () => {
   const skills = Object.values(Skill);
