@@ -7,6 +7,11 @@ const prisma = new PrismaClient();
 export async function PUT(req: NextRequest): Promise<NextResponse> {
   try {
     const id = getRequestIdFromQuery(req);
+    if (id === null) {
+      return new NextResponse("Bad Request: Missing 'id' parameter", {
+        status: 400,
+      });
+    }
     if (req.headers.get("content-type") !== "application/json") {
       return new NextResponse("Unsupported Media Type", { status: 415 });
     }

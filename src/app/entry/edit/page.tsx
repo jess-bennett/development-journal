@@ -1,19 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Entry, Skill } from "@prisma/client";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { NextRequest } from "next/server";
-import { getRequestIdFromQuery } from "@/src/utilities/getRequestId";
 
 const EditPage = (req: NextRequest) => {
-  const id = getRequestIdFromQuery(req);
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
   const [entry, setEntry] = useState<Entry | null>(null);
   const skills = Object.values(Skill);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/entry/${id}`);
+        const response = await fetch(`/api/entry/read?id=${id}`);
         const data = await response.json();
         setEntry(data);
       } catch (error) {
@@ -35,12 +37,12 @@ const EditPage = (req: NextRequest) => {
         content: formData.get("content")!.toString(),
         skill: Array.from(formData.getAll("skills")!) as Skill[],
       };
-      await fetch("/api/entry/update", {
+      await fetch(`/api/entry/update?id=${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedEntryData),
       });
-      redirect("/");
+      router.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -69,13 +71,17 @@ const EditPage = (req: NextRequest) => {
       />
       <select
         className="c-entry-card__content"
-        defaultValue={["DEFAULT"]}
+        defaultValue={entry?.skill || ["DEFAULT"]} // Preselect entry skills or default value if not available
         name="skills"
         multiple
         required
       >
         {skills.map((skill, idx) => (
-          <option key={idx} value={skill}>
+          <option
+            key={idx}
+            value={skill}
+            selected={entry?.skill.includes(skill)}
+          >
             {skill}
           </option>
         ))}
