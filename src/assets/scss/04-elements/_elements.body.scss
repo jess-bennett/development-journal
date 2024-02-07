@@ -1,4 +1,4 @@
 body {
-  background-color: map-get($colors-pastelPink, background);
+  @include theme(background-color, pageBackground);
   margin: var(--st-size-wide);
 }

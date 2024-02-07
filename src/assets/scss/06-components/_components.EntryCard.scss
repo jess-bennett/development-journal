@@ -1,6 +1,6 @@
 .c-entry-card {
   min-width: 30vw;
-  background: map-get($colors-teal, background);
+  @include theme(background, cardBackground);
   color: $color-fontBody;
   padding: var(--st-size-wide);
   margin-top: var(--st-size-wide);
@@ -80,8 +80,8 @@
   }
 
   &__title {
-    background: map-get($colors-butterYellow, background);
-    color: map-get($colors-butterYellow, foreground);
+    @include theme(background, cardHeader);
+    @include theme(color, cardHeaderFont);
     font-family: $font-headings;
     font-size: var(--ft-size-h2);
     margin: 0;

@@ -1,6 +1,6 @@
 .c-btn {
-  background: map-get($colors-teal, foreground);
-  color: map-get($colors-teal, background);
+  @include theme(background, cardButton);
+  @include theme(color, cardButtonFont);
   border: 0;
   border-radius: 50%;
   width: var(--st-size-wide);
