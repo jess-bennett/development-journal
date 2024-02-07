@@ -1,0 +1,8 @@
+@import "./tools.themes";
+
+$themes: ();
+$themeValues: ();
+@include generateThemeMappings(day, $day);
+@include generateThemeMappings(night, $night);
+@include generateThemeMappings(rainbow, $rainbow);
+/** end theme generation **/

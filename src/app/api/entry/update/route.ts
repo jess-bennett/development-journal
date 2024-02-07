@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Skill, PrismaClient } from "@prisma/client";
+
 import { getRequestIdFromQuery } from "@/src/utilities/getRequestId";
+import { PrismaClient,Skill } from "@prisma/client";
 
 const prisma = new PrismaClient();
 

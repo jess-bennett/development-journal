@@ -1,0 +1,9 @@
+.c-theme-buttons {
+  text-align: right;
+  font-size: var(--ft-size-h1);
+
+  & svg {
+    margin-left: var(--st-size-narrow);
+    cursor: pointer;
+  }
+}

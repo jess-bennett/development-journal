@@ -1,7 +1,6 @@
 "use client";
-import Link from "next/link";
-import { Skill } from "@prisma/client";
 import React from "react";
+import Link from "next/link";
 import { BiLogoNodejs } from "react-icons/bi";
 import { FiDelete, FiEdit } from "react-icons/fi";
 import {
@@ -25,6 +24,8 @@ import {
 } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
 import { VscCloud, VscSymbolMisc } from "react-icons/vsc";
+
+import { Skill } from "@prisma/client";
 
 export interface Entry {
   id: string;
