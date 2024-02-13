@@ -2,7 +2,10 @@
 
 $themes: ();
 $themeValues: ();
-@include generateThemeMappings(day, $day);
-@include generateThemeMappings(night, $night);
-@include generateThemeMappings(rainbow, $rainbow);
+@include generateThemeMappings(sunnyDaydream, $sunnyDaydream);
+@include generateThemeMappings(mysticNight, $mysticNight);
+@include generateThemeMappings(rainbowSplash, $rainbowSplash);
+@include generateThemeMappings(oceanBreeze, $oceanBreeze);
+@include generateThemeMappings(autumnGlow, $autumnGlow);
+@include generateThemeMappings(summerSunset, $summerSunset);
 /** end theme generation **/

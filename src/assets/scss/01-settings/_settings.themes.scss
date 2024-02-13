@@ -1,34 +1,109 @@
 @import "../02-tools/tools.functions";
 
-$day: (
-  pageBackground: color(grainBrown),
-  headerBackground: color(deluge),
-  headerFont: color(sunglo),
-  cardBackground: color(sunglo),
-  cardHeader: color(marigoldYellow),
-  cardHeaderFont: color(sunglo),
-  cardButton: color(marigoldYellow),
-  cardButtonFont: color(sunglo),
+$sunnyDaydream: (
+  pageBackground: color(greenishBeige),
+  headerBackground: color(amber),
+  cardBackground: color(white),
+  cardFont: color(darkGray),
+  cardHeader: color(skyBlue),
+  cardButton: color(salmon),
+  headerFont: color(darkGray),
+  cardHeaderFont: color(white),
+  cardButtonFont: color(white),
+  gradient: (
+    color(greenishBeige),
+    color(white),
+    color(skyBlue),
+    color(salmon),
+  ),
 );
 
-$night: (
-  pageBackground: color(blumine),
-  headerBackground: color(tamarind),
-  headerFont: color(royalHeath),
-  cardBackground: color(royalHeath),
-  cardHeader: color(deepBlush),
-  cardHeaderFont: color(blumine),
-  cardButton: color(deepBlush),
-  cardButtonFont: color(blumine),
+$mysticNight: (
+  pageBackground: color(midnightBlue),
+  headerBackground: color(darkSlateBlue),
+  cardBackground: color(charcoal),
+  cardFont: color(lightGrey),
+  cardHeader: color(deepMagenta),
+  cardButton: color(rubyRed),
+  headerFont: color(white),
+  cardHeaderFont: color(lightGrey),
+  cardButtonFont: color(white),
+  gradient: (
+    color(midnightBlue),
+    color(charcoal),
+    color(deepMagenta),
+    color(rubyRed),
+  ),
 );
 
-$rainbow: (
-  pageBackground: color(fern),
-  headerBackground: color(denim),
-  headerFont: color(corn),
-  cardBackground: color(tapestry),
-  cardHeader: color(corn),
-  cardHeaderFont: color(tapestry),
-  cardButton: color(denim),
-  cardButtonFont: color(corn),
+$rainbowSplash: (
+  pageBackground: color(white),
+  headerBackground: color(gold),
+  cardBackground: color(hotPink),
+  cardFont: color(darkGray),
+  cardHeader: color(orange),
+  cardButton: color(limeGreen),
+  headerFont: color(blue),
+  cardHeaderFont: color(darkViolet),
+  cardButtonFont: color(red),
+  gradient: (
+    color(white),
+    color(hotPink),
+    color(limeGreen),
+    color(blue),
+  ),
+);
+
+$oceanBreeze: (
+  pageBackground: color(paleBlue),
+  headerBackground: color(steelBlue),
+  cardBackground: color(white),
+  cardFont: color(darkGray),
+  cardHeader: color(burntOrange),
+  cardButton: color(teal),
+  headerFont: color(darkBlue),
+  cardHeaderFont: color(white),
+  cardButtonFont: color(white),
+  gradient: (
+    color(paleBlue),
+    color(white),
+    color(burntOrange),
+    color(teal),
+  ),
+);
+
+$autumnGlow: (
+  pageBackground: color(beige),
+  headerBackground: color(dustyRose),
+  cardBackground: color(lightApricot),
+  cardFont: color(darkGray),
+  cardHeader: color(goldenrod),
+  cardButton: color(sageGreen),
+  headerFont: color(burgundy),
+  cardHeaderFont: color(charcoal),
+  cardButtonFont: color(white),
+  gradient: (
+    color(beige),
+    color(lightApricot),
+    color(goldenrod),
+    color(sageGreen),
+  ),
+);
+
+$summerSunset: (
+  pageBackground: color(lightPink),
+  headerBackground: color(sunflowerYellow),
+  cardBackground: color(gainsboroGray),
+  cardFont: color(darkGray),
+  cardHeader: color(melonRed),
+  cardButton: color(skyBlue),
+  headerFont: color(oceanBlue),
+  cardHeaderFont: color(darkCharcoal),
+  cardButtonFont: color(white),
+  gradient: (
+    color(lightPink),
+    color(sunflowerYellow),
+    color(gainsboroGray),
+    color(darkGray),
+  ),
 );
