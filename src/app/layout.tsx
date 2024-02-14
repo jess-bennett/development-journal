@@ -9,7 +9,7 @@ import ThemeButtons from "../components/ThemeButtons";
 import "../assets/scss/main.scss";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState("day");
+  const [theme, setTheme] = useState("sunnyDaydream");
 
   const handleThemeChange = (newTheme: string) => {
     setTheme(newTheme);

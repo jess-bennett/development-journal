@@ -26,12 +26,12 @@
           font-family: $font-subheadings;
           font-size: var(--ft-size-h2);
           @include theme(color, headerFont);
-          // @include anchorHover(
-          //   map-get($colors-papayaOrange, foreground),
-          //   map-get($colors-pastelPink, background),
-          //   map-get($colors-teal, background),
-          //   map-get($colors-butterYellow, background)
-          // );
+          @include anchorHover(
+            pageBackground,
+            cardBackground,
+            cardHeader,
+            cardButton
+          );
         }
       }
     }

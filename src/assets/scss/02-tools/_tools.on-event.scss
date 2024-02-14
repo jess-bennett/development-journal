@@ -2,15 +2,54 @@
 // //   #ON-EVENT
 // //   ======================================================================== */
 
-@mixin anchorHover($start-val, $hover-val1, $hover-val2, $hover-val3) {
-  background: linear-gradient(to right, $start-val, $start-val),
-    linear-gradient(to right, $hover-val1, $hover-val2, $hover-val3);
-  background-size: 100% 3px, 0 3px;
-  background-position: 100% 100%, 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 400ms;
+// @mixin anchorHover($start-val, $hover-val1, $hover-val2, $hover-val3) {
+//   background: linear-gradient(to right, $start-val, $start-val),
+//     linear-gradient(to right, $hover-val1, $hover-val2, $hover-val3);
+//   background-size: 100% 3px, 0 3px;
+//   background-position: 100% 100%, 0 100%;
+//   background-repeat: no-repeat;
+//   transition: background-size 400ms;
 
-  &:hover {
-    background-size: 0 3px, 100% 3px;
+//   &:hover {
+//     background-size: 0 3px, 100% 3px;
+//   }
+// }
+
+@mixin anchorHover($start-val, $hover-val1, $hover-val2, $hover-val3) {
+  @each $theme in $themes {
+    @if (
+      themeExists($start-val, $theme) and
+        themeExists($hover-val1, $theme)
+        themeExists($hover-val2, $theme)
+        themeExists($hover-val3, $theme)
+    ) {
+      $value1: getThemeValue($start-val, $theme);
+      $value2: getThemeValue($hover-val1, $theme);
+      $value3: getThemeValue($hover-val2, $theme);
+      $value4: getThemeValue($hover-val3, $theme);
+      @at-root .#{$theme} #{&} {
+        background: linear-gradient(
+            to right,
+            var(--theme-#{$theme}-#{$start-val}, #{$value1}),
+            var(--theme-#{$theme}-#{$start-val}, #{$value1})
+          ),
+          linear-gradient(
+            to right,
+            var(--theme-#{$theme}-#{$hover-val1}, #{$value2}),
+            var(--theme-#{$theme}-#{$hover-val2}, #{$value3}),
+            var(--theme-#{$theme}-#{$hover-val3}, #{$value4})
+          );
+        background-size: 100% 3px, 0 3px;
+        background-position: 100% 100%, 0 100%;
+        background-repeat: no-repeat;
+        transition: background-size 400ms;
+
+        &:hover {
+          background-size: 0 3px, 100% 3px;
+        }
+      }
+    } @else {
+      @error "Property #{$key} doesn't exist in #{$theme}";
+    }
   }
 }

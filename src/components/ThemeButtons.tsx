@@ -10,22 +10,34 @@ interface ThemeButtonsProps {
   onThemeChange: (theme: string) => void;
 }
 
+const themes = [
+  { id: "sunnyDaydream", icon: <WiDaySunny /> },
+  { id: "mysticNight", icon: <MdOutlineNightlight /> },
+  { id: "rainbowSplash", icon: <CiRainbow /> },
+  { id: "oceanBreeze", icon: <GiBigWave /> },
+  { id: "autumnGlow", icon: <GiTreeBranch /> },
+  { id: "summerSunset", icon: <TbSunset2 /> },
+];
+
 const ThemeButtons = ({ onThemeChange }: ThemeButtonsProps) => {
-  const [theme, setTheme] = useState("sunnyDaydream");
+  const [activeTheme, setActiveTheme] = useState(themes[0].id);
 
   const handleThemeChange = (newTheme: string) => {
-    setTheme(newTheme);
+    setActiveTheme(newTheme);
     onThemeChange(newTheme);
   };
 
   return (
     <div className="c-theme-buttons">
-      <WiDaySunny onClick={() => handleThemeChange("sunnyDaydream")} />
-      <MdOutlineNightlight onClick={() => handleThemeChange("mysticNight")} />
-      <CiRainbow onClick={() => handleThemeChange("rainbowSplash")} />
-      <GiBigWave onClick={() => handleThemeChange("oceanBreeze")} />
-      <GiTreeBranch onClick={() => handleThemeChange("autumnGlow")} />
-      <TbSunset2 onClick={() => handleThemeChange("summerSunset")} />
+      {themes.map(({ id, icon }) => (
+        <div
+          key={id}
+          className={`${activeTheme === id ? "active" : ""}`}
+          onClick={() => handleThemeChange(id)}
+        >
+          {icon}
+        </div>
+      ))}
     </div>
   );
 };

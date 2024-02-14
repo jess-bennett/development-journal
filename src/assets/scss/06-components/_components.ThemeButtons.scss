@@ -1,6 +1,16 @@
 .c-theme-buttons {
   text-align: right;
-  font-size: var(--ft-size-h1);
+  font-size: var(--ft-size-h3);
+
+  div {
+    display: inline-block;
+    @include theme(color, headerFont);
+
+    &.active {
+      @include theme(color, cardHeader);
+      font-size: var(--ft-size-h1);
+    }
+  }
 
   & svg {
     margin-left: var(--st-size-narrow);
