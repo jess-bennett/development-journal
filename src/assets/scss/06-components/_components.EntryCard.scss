@@ -1,7 +1,7 @@
 .c-entry-card {
   min-width: 30vw;
-  @include theme(background, cardBackground);
-  @include theme(color, cardFont);
+  @include theme(background, themeColor3);
+  @include theme(color, themeColor3Contrast);
   padding: var(--st-size-wide);
   margin-top: var(--st-size-wide);
   border-radius: 2rem;
@@ -81,8 +81,8 @@
   }
 
   &__title {
-    @include theme(background, cardHeader);
-    @include theme(color, cardHeaderFont);
+    @include theme(background, themeColor4);
+    @include theme(color, themeColor4Contrast);
     font-family: $font-headings;
     font-size: var(--ft-size-h2);
     margin: 0;

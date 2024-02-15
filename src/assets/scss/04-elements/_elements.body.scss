@@ -1,4 +1,4 @@
 body {
-  @include theme(background-color, pageBackground);
+  @include theme(background-color, themeColor1);
   margin: var(--st-size-wide);
 }

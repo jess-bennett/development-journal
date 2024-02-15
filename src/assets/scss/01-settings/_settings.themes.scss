@@ -1,109 +1,209 @@
 @import "../02-tools/tools.functions";
 
+$sunnyDaydreamColors: (
+  themeColor1: color(paleLemon),
+  themeColor2: color(paleSpringBud),
+  themeColor3: color(paleLime),
+  themeColor4: color(mediumAquamarine),
+  themeColor5: color(tealBlue),
+);
+
 $sunnyDaydream: (
-  pageBackground: color(greenishBeige),
-  headerBackground: color(amber),
-  cardBackground: color(white),
-  cardFont: color(darkGray),
-  cardHeader: color(skyBlue),
-  cardButton: color(salmon),
-  headerFont: color(darkGray),
-  cardHeaderFont: color(white),
-  cardButtonFont: color(white),
+  themeColor1: map-get($sunnyDaydreamColors, themeColor1),
+  themeColor2: map-get($sunnyDaydreamColors, themeColor2),
+  themeColor2Contrast: invert(map-get($sunnyDaydreamColors, themeColor2)),
+  themeColor3: map-get($sunnyDaydreamColors, themeColor3),
+  themeColor3Contrast: invert(map-get($sunnyDaydreamColors, themeColor3)),
+  themeColor4: map-get($sunnyDaydreamColors, themeColor4),
+  themeColor4Contrast: invert(map-get($sunnyDaydreamColors, themeColor4)),
+  themeColor5: map-get($sunnyDaydreamColors, themeColor5),
+  themeColor5Contrast: invert(map-get($sunnyDaydreamColors, themeColor5)),
   gradient: (
-    color(greenishBeige),
-    color(white),
-    color(skyBlue),
-    color(salmon),
+    map-get($sunnyDaydreamColors, themeColor1),
+    map-get($sunnyDaydreamColors, themeColor3),
+    map-get($sunnyDaydreamColors, themeColor4),
+    map-get($sunnyDaydreamColors, themeColor5),
   ),
+);
+
+$mysticNightColors: (
+  themeColor1: color(royalPurple),
+  themeColor2: color(darkBlue),
+  themeColor3: color(midnightNavy),
+  themeColor4: color(deepIndigo),
+  themeColor5: color(blackcurrant),
 );
 
 $mysticNight: (
-  pageBackground: color(midnightBlue),
-  headerBackground: color(darkSlateBlue),
-  cardBackground: color(charcoal),
-  cardFont: color(lightGrey),
-  cardHeader: color(deepMagenta),
-  cardButton: color(rubyRed),
-  headerFont: color(white),
-  cardHeaderFont: color(lightGrey),
-  cardButtonFont: color(white),
+  themeColor1: map-get($mysticNightColors, themeColor1),
+  themeColor2: map-get($mysticNightColors, themeColor2),
+  themeColor2Contrast: invert(map-get($mysticNightColors, themeColor2)),
+  themeColor3: map-get($mysticNightColors, themeColor3),
+  themeColor3Contrast: invert(map-get($mysticNightColors, themeColor3)),
+  themeColor4: map-get($mysticNightColors, themeColor4),
+  themeColor4Contrast: invert(map-get($mysticNightColors, themeColor4)),
+  themeColor5: map-get($mysticNightColors, themeColor5),
+  themeColor5Contrast: invert(map-get($mysticNightColors, themeColor5)),
   gradient: (
-    color(midnightBlue),
-    color(charcoal),
-    color(deepMagenta),
-    color(rubyRed),
+    map-get($mysticNightColors, themeColor1),
+    map-get($mysticNightColors, themeColor3),
+    map-get($mysticNightColors, themeColor4),
+    map-get($mysticNightColors, themeColor5),
   ),
+);
+
+$rainbowSplashColors: (
+  themeColor1: color(white),
+  themeColor2: color(palePink),
+  themeColor3: color(lightYellow),
+  themeColor4: color(pastelGreen),
+  themeColor5: color(cream),
 );
 
 $rainbowSplash: (
-  pageBackground: color(white),
-  headerBackground: color(gold),
-  cardBackground: color(hotPink),
-  cardFont: color(darkGray),
-  cardHeader: color(orange),
-  cardButton: color(limeGreen),
-  headerFont: color(blue),
-  cardHeaderFont: color(darkViolet),
-  cardButtonFont: color(red),
+  themeColor1: map-get($rainbowSplashColors, themeColor1),
+  themeColor2: map-get($rainbowSplashColors, themeColor2),
+  themeColor2Contrast: invert(map-get($rainbowSplashColors, themeColor2)),
+  themeColor3: map-get($rainbowSplashColors, themeColor3),
+  themeColor3Contrast: invert(map-get($rainbowSplashColors, themeColor3)),
+  themeColor4: map-get($rainbowSplashColors, themeColor4),
+  themeColor4Contrast: invert(map-get($rainbowSplashColors, themeColor4)),
+  themeColor5: map-get($rainbowSplashColors, themeColor5),
+  themeColor5Contrast: invert(map-get($rainbowSplashColors, themeColor5)),
   gradient: (
-    color(white),
-    color(hotPink),
-    color(limeGreen),
-    color(blue),
+    map-get($rainbowSplashColors, themeColor1),
+    map-get($rainbowSplashColors, themeColor3),
+    map-get($rainbowSplashColors, themeColor4),
+    map-get($rainbowSplashColors, themeColor5),
   ),
+);
+
+$oceanBreezeColors: (
+  themeColor1: color(powderBlue),
+  themeColor2: color(slateGray),
+  themeColor3: color(steelBlue),
+  themeColor4: color(paleAqua),
+  themeColor5: color(slateBlue),
 );
 
 $oceanBreeze: (
-  pageBackground: color(paleBlue),
-  headerBackground: color(steelBlue),
-  cardBackground: color(white),
-  cardFont: color(darkGray),
-  cardHeader: color(burntOrange),
-  cardButton: color(teal),
-  headerFont: color(darkBlue),
-  cardHeaderFont: color(white),
-  cardButtonFont: color(white),
+  themeColor1: map-get($oceanBreezeColors, themeColor1),
+  themeColor2: map-get($oceanBreezeColors, themeColor2),
+  themeColor2Contrast: invert(map-get($oceanBreezeColors, themeColor2)),
+  themeColor3: map-get($oceanBreezeColors, themeColor3),
+  themeColor3Contrast: invert(map-get($oceanBreezeColors, themeColor3)),
+  themeColor4: map-get($oceanBreezeColors, themeColor4),
+  themeColor4Contrast: invert(map-get($oceanBreezeColors, themeColor4)),
+  themeColor5: map-get($oceanBreezeColors, themeColor5),
+  themeColor5Contrast: invert(map-get($oceanBreezeColors, themeColor5)),
   gradient: (
-    color(paleBlue),
-    color(white),
-    color(burntOrange),
-    color(teal),
+    map-get($oceanBreezeColors, themeColor1),
+    map-get($oceanBreezeColors, themeColor3),
+    map-get($oceanBreezeColors, themeColor4),
+    map-get($oceanBreezeColors, themeColor5),
   ),
+);
+
+$autumnGlowColors: (
+  themeColor1: color(apricot),
+  themeColor2: color(oliveDrab),
+  themeColor3: color(peachYellow),
+  themeColor4: color(mandarinOrange),
+  themeColor5: color(russet),
 );
 
 $autumnGlow: (
-  pageBackground: color(beige),
-  headerBackground: color(dustyRose),
-  cardBackground: color(lightApricot),
-  cardFont: color(darkGray),
-  cardHeader: color(goldenrod),
-  cardButton: color(sageGreen),
-  headerFont: color(burgundy),
-  cardHeaderFont: color(charcoal),
-  cardButtonFont: color(white),
+  themeColor1: map-get($autumnGlowColors, themeColor1),
+  themeColor2: map-get($autumnGlowColors, themeColor2),
+  themeColor2Contrast: invert(map-get($autumnGlowColors, themeColor2)),
+  themeColor3: map-get($autumnGlowColors, themeColor3),
+  themeColor3Contrast: invert(map-get($autumnGlowColors, themeColor3)),
+  themeColor4: map-get($autumnGlowColors, themeColor4),
+  themeColor4Contrast: invert(map-get($autumnGlowColors, themeColor4)),
+  themeColor5: map-get($autumnGlowColors, themeColor5),
+  themeColor5Contrast: invert(map-get($autumnGlowColors, themeColor5)),
   gradient: (
-    color(beige),
-    color(lightApricot),
-    color(goldenrod),
-    color(sageGreen),
+    map-get($autumnGlowColors, themeColor1),
+    map-get($autumnGlowColors, themeColor3),
+    map-get($autumnGlowColors, themeColor4),
+    map-get($autumnGlowColors, themeColor5),
   ),
 );
 
+$summerSunsetColors: (
+  themeColor1: color(selectiveYellow),
+  themeColor2: color(columbiaBlue),
+  themeColor3: color(lavender),
+  themeColor4: color(spaceCadet),
+  themeColor5: color(salmonPink),
+);
+
 $summerSunset: (
-  pageBackground: color(lightPink),
-  headerBackground: color(sunflowerYellow),
-  cardBackground: color(gainsboroGray),
-  cardFont: color(darkGray),
-  cardHeader: color(melonRed),
-  cardButton: color(skyBlue),
-  headerFont: color(oceanBlue),
-  cardHeaderFont: color(darkCharcoal),
-  cardButtonFont: color(white),
+  themeColor1: map-get($summerSunsetColors, themeColor1),
+  themeColor2: map-get($summerSunsetColors, themeColor2),
+  themeColor2Contrast: invert(map-get($summerSunsetColors, themeColor2)),
+  themeColor3: map-get($summerSunsetColors, themeColor3),
+  themeColor3Contrast: invert(map-get($summerSunsetColors, themeColor3)),
+  themeColor4: map-get($summerSunsetColors, themeColor4),
+  themeColor4Contrast: invert(map-get($summerSunsetColors, themeColor4)),
+  themeColor5: map-get($summerSunsetColors, themeColor5),
+  themeColor5Contrast: invert(map-get($summerSunsetColors, themeColor5)),
   gradient: (
-    color(lightPink),
-    color(sunflowerYellow),
-    color(gainsboroGray),
-    color(darkGray),
+    map-get($summerSunsetColors, themeColor1),
+    map-get($summerSunsetColors, themeColor3),
+    map-get($summerSunsetColors, themeColor4),
+    map-get($summerSunsetColors, themeColor5),
+  ),
+);
+
+$vividDuskColors: (
+  themeColor1: color(grape),
+  themeColor2: color(pinkSherbet),
+  themeColor3: color(charm),
+  themeColor4: color(pansyPurple),
+  themeColor5: color(peachPuff),
+);
+
+$vividDusk: (
+  themeColor1: map-get($vividDuskColors, themeColor1),
+  themeColor2: map-get($vividDuskColors, themeColor2),
+  themeColor2Contrast: invert(map-get($vividDuskColors, themeColor2)),
+  themeColor3: map-get($vividDuskColors, themeColor3),
+  themeColor3Contrast: invert(map-get($vividDuskColors, themeColor3)),
+  themeColor4: map-get($vividDuskColors, themeColor4),
+  themeColor4Contrast: invert(map-get($vividDuskColors, themeColor4)),
+  themeColor5: map-get($vividDuskColors, themeColor5),
+  themeColor5Contrast: invert(map-get($vividDuskColors, themeColor5)),
+  gradient: (
+    map-get($vividDuskColors, themeColor1),
+    map-get($vividDuskColors, themeColor3),
+    map-get($vividDuskColors, themeColor4),
+    map-get($vividDuskColors, themeColor5),
+  ),
+);
+
+$dreamyStarsColors: (
+  themeColor1: color(stormGray),
+  themeColor2: color(lavenderBlue),
+  themeColor3: color(periwinkle),
+  themeColor4: color(paleLavender),
+  themeColor5: color(manila),
+);
+
+$dreamyStars: (
+  themeColor1: map-get($dreamyStarsColors, themeColor1),
+  themeColor2: map-get($dreamyStarsColors, themeColor2),
+  themeColor2Contrast: invert(map-get($dreamyStarsColors, themeColor2)),
+  themeColor3: map-get($dreamyStarsColors, themeColor3),
+  themeColor3Contrast: invert(map-get($dreamyStarsColors, themeColor3)),
+  themeColor4: map-get($dreamyStarsColors, themeColor4),
+  themeColor4Contrast: invert(map-get($dreamyStarsColors, themeColor4)),
+  themeColor5: map-get($dreamyStarsColors, themeColor5),
+  themeColor5Contrast: invert(map-get($dreamyStarsColors, themeColor5)),
+  gradient: (
+    map-get($dreamyStarsColors, themeColor1),
+    map-get($dreamyStarsColors, themeColor3),
+    map-get($dreamyStarsColors, themeColor4),
+    map-get($dreamyStarsColors, themeColor5),
   ),
 );

@@ -1,6 +1,6 @@
 .c-btn {
-  @include theme(background, cardButton);
-  @include theme(color, cardButtonFont);
+  @include theme(background, themeColor5);
+  @include theme(color, themeColor5Contrast);
   border: 0;
   border-radius: 50%;
   width: var(--st-size-wide);
@@ -13,6 +13,6 @@
   cursor: pointer;
 
   &:hover {
-    background: $color-fontBody;
+    @include theme(background, themeColor4);
   }
 }

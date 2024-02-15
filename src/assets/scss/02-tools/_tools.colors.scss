@@ -8,4 +8,6 @@ $themeValues: ();
 @include generateThemeMappings(oceanBreeze, $oceanBreeze);
 @include generateThemeMappings(autumnGlow, $autumnGlow);
 @include generateThemeMappings(summerSunset, $summerSunset);
+@include generateThemeMappings(vividDusk, $vividDusk);
+@include generateThemeMappings(dreamyStars, $dreamyStars);
 /** end theme generation **/

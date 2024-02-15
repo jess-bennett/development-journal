@@ -1,5 +1,5 @@
 .c-site-header {
-  @include theme(background, headerBackground);
+  @include theme(background, themeColor2);
   font-family: $font-headings;
   min-height: 5rem;
   border-radius: 1rem;
@@ -8,7 +8,7 @@
   align-items: center;
   padding: 1rem;
   h1 {
-    @include theme(color, headerFont);
+    @include theme(color, themeColor2Contrast);
     font-size: var(--ft-size-h1);
     margin: 0;
     text-transform: uppercase;
@@ -25,13 +25,8 @@
         a {
           font-family: $font-subheadings;
           font-size: var(--ft-size-h2);
-          @include theme(color, headerFont);
-          @include anchorHover(
-            pageBackground,
-            cardBackground,
-            cardHeader,
-            cardButton
-          );
+          @include theme(color, themeColor2Contrast);
+          @include anchorHover(gradient);
         }
       }
     }

@@ -4,10 +4,10 @@
 
   div {
     display: inline-block;
-    @include theme(color, headerFont);
+    @include theme(color, themeColor2);
 
     &.active {
-      @include theme(color, cardHeader);
+      @include theme(color, themeColor2Contrast);
       font-size: var(--ft-size-h1);
     }
   }

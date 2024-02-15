@@ -13,3 +13,19 @@
 @function getThemeValue($key, $theme) {
   @return map-get(map-get($themeValues, $key), $theme);
 }
+
+@function calculate-contrast($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  // Calculate luminance
+  $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+
+  // Decide on contrast color
+  @if ($luminance > 128) {
+    @return #000000; // Black for light backgrounds
+  } @else {
+    @return #ffffff; // White for dark backgrounds
+  }
+}
