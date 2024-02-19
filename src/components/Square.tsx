@@ -3,7 +3,7 @@ const Square: React.FC<{ value: string; onSquareClick: () => void }> = ({
   onSquareClick,
 }) => {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className="c-btn c-btn--square" onClick={onSquareClick}>
       {value}
     </button>
   );
