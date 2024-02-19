@@ -58,6 +58,10 @@
         background: $color-fontBody;
       }
     }
+
+    &--tic-tac-toe {
+      padding-top: var(--st-size-normal);
+    }
   }
 
   &__date {
