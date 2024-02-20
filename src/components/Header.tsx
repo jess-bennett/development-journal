@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { BsGrid3X3 } from "react-icons/bs";
+import { TfiWrite } from "react-icons/tfi";
 
 const Header = () => {
   return (
@@ -11,7 +13,12 @@ const Header = () => {
         <ul>
           <li>
             <Link href="/entry/create" role={"button"}>
-              New Entry
+              <TfiWrite />
+            </Link>
+          </li>
+          <li>
+            <Link href="/features/tic-tac-toe" role={"button"}>
+              <BsGrid3X3 />
             </Link>
           </li>
         </ul>
