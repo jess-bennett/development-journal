@@ -13,9 +13,9 @@
   cursor: pointer;
 
   &--square {
-    @include theme(background, themeColor5);
-    @include theme(color, themeColor5Contrast);
-    border: 1px solid $color-fontBody;
+    @include theme(background, themeColor2);
+    @include theme(color, themeColor2Contrast);
+    @include theme(border, themeColor4, 1px, solid);
     border-radius: 0;
     float: left;
     font-size: var(--ft-size-h2);
