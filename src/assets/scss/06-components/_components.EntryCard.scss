@@ -7,10 +7,12 @@
   border-radius: 2rem;
   flex-grow: 1;
   flex-basis: 0;
+  position: relative;
 
   &__content {
     font-family: $font-body;
     font-size: var(--ft-size-body);
+    padding-bottom: var(--st-size-wide);
 
     & code {
       background-color: #f0f0f0;
@@ -85,6 +87,9 @@
     justify-content: flex-end;
     font-family: $font-subheadings;
     text-align: right;
+    position: absolute;
+    bottom: var(--st-size-wide);
+    right: var(--st-size-wide);
   }
 
   &__header {
