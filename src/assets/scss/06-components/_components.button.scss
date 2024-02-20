@@ -12,6 +12,23 @@
   font-size: var(--ft-size-h4);
   cursor: pointer;
 
+  &--square {
+    @include theme(background, themeColor2);
+    @include theme(color, themeColor2Contrast);
+    @include theme(border, themeColor4, 1px, solid);
+    border-radius: 0;
+    float: left;
+    font-size: var(--ft-size-h2);
+    font-weight: bold;
+    line-height: 4rem;
+    height: 4rem;
+    margin-right: -1px;
+    margin-top: -1px;
+    margin-left: 0;
+    padding: 0;
+    width: 4rem;
+  }
+
   &:hover {
     @include theme(background, themeColor4);
   }

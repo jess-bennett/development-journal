@@ -1,0 +1,24 @@
+.board-row {
+  &:nth-child(1) {
+    .c-btn--square:nth-child(1) {
+      border-top-left-radius: 1rem;
+    }
+    .c-btn--square:nth-child(3) {
+      border-top-right-radius: 1rem;
+    }
+  }
+  &:nth-child(3) {
+    .c-btn--square:nth-child(1) {
+      border-bottom-left-radius: 1rem;
+    }
+    .c-btn--square:nth-child(3) {
+      border-bottom-right-radius: 1rem;
+    }
+  }
+
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
