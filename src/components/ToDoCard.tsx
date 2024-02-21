@@ -7,7 +7,7 @@ import { Skill } from "@prisma/client";
 
 import { skillIcons } from "../utilities/types";
 
-export interface Entry {
+export interface Item {
   id: string;
   title: string;
   content: string;
@@ -15,8 +15,8 @@ export interface Entry {
   skill: Skill[];
 }
 
-async function deleteEntry(id: string) {
-  await fetch(`/api/entry/delete?id=${id}`, {
+async function deleteItem(id: string) {
+  await fetch(`/api/item/delete?id=${id}`, {
     method: "DELETE",
   });
   window.location.reload();
@@ -39,7 +39,7 @@ const formatContent = (content: string) => {
   );
 };
 
-const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
+const ToDoCard = ({ id, title, content, createdAt, skill }: Item) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
@@ -63,10 +63,10 @@ const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
       <h2 className="c-entry-card__title">{title}</h2>
       {formattedContent}
       <footer className="c-entry-card__footer">
-        <button className="c-btn" onClick={() => deleteEntry(id)}>
+        <button className="c-btn" onClick={() => deleteItem(id)}>
           <FiDelete />
         </button>
-        <Link className="c-btn" href={`/entry/edit?id=${id}`} role="button">
+        <Link className="c-btn" href={`/item/edit?id=${id}`} role="button">
           <FiEdit />
         </Link>
       </footer>
@@ -74,4 +74,4 @@ const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
   );
 };
 
-export default EntryCard;
+export default ToDoCard;

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { BsGrid3X3 } from "react-icons/bs";
+import { RiTodoLine } from "react-icons/ri";
 import { TfiWrite } from "react-icons/tfi";
 
 const Header = () => {
@@ -14,6 +15,11 @@ const Header = () => {
           <li>
             <Link href="/entry/create" role={"button"}>
               <TfiWrite />
+            </Link>
+          </li>
+          <li>
+            <Link href="/features/to-do" role={"button"}>
+              <RiTodoLine />
             </Link>
           </li>
           <li>
