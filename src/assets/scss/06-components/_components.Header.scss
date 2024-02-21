@@ -23,11 +23,23 @@
         margin-left: var(--st-size-wide);
 
         a {
-          font-family: $font-subheadings;
           font-size: var(--ft-size-h2);
           @include theme(color, themeColor2Contrast);
         }
       }
+    }
+  }
+
+  &--secondary {
+    flex-basis: 100%;
+    @include theme(background, themeColor1);
+    min-height: 2.5rem;
+    padding-bottom: 0;
+    justify-content: center;
+
+    a {
+      @include theme(color, themeColor2);
+      font-size: var(--ft-size-h2);
     }
   }
 }

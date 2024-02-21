@@ -44,7 +44,7 @@ const EditPage = (req: NextRequest) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedItemData),
       });
-      router.push("/");
+      router.push("/features/to-do");
     } catch (error) {
       console.error(error);
     }

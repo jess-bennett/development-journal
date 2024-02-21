@@ -5,6 +5,8 @@ import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 
 import Board from "@/src/components/Board";
 
+import SecondaryHeader from "../../../components/SecondaryHeader";
+
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
@@ -33,24 +35,23 @@ const Game = () => {
       description = <MdOutlineSettingsBackupRestore />;
     }
     return (
-      <li key={move}>
-        <button className="c-btn" onClick={() => jumpTo(move)}>
-          {description}
-        </button>
-      </li>
+      <button
+        key={move}
+        className="c-btn c-btn--game"
+        onClick={() => jumpTo(move)}
+      >
+        {description}
+      </button>
     );
   });
-  console.log(moves);
 
   return (
-    <div className="c-entry-card">
-      <Board
-        xIsNext={xIsNext}
-        squares={currentSquares}
-        onPlay={handlePlay}
-        moves={moves}
-      />
-    </div>
+    <>
+      <SecondaryHeader buttons={moves} />
+      <div className="c-entry-card">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+    </>
   );
 };
 

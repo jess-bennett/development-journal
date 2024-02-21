@@ -8,7 +8,6 @@ const Board: React.FC<{
   xIsNext: boolean;
   squares: Array<string>;
   onPlay: (a: Array<string>) => void;
-  moves: JSX.Element[];
 }> = ({ xIsNext, squares, onPlay, moves }) => {
   const handleClick = (i: number) => {
     if (squares[i] || calculateWinner(squares)) {
@@ -51,7 +50,6 @@ const Board: React.FC<{
             <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
           </div>
         </div>
-        <ol>{moves}</ol>
       </div>
     </>
   );

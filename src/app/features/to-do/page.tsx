@@ -4,10 +4,16 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
-import ToDoCard, { Item } from "@/src/components/ToDoCard";
+import SecondaryHeader from "../../../components/SecondaryHeader";
+import ToDoCard, { Item } from "../../../components/ToDoCard";
 
 const ToDo = () => {
   const [items, setItems] = useState<Item[]>([]);
+  const secondaryHeaderButtons = [
+    <Link key={1} href="/item/create" role={"button"}>
+      <IoMdAddCircleOutline />
+    </Link>,
+  ];
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -29,9 +35,7 @@ const ToDo = () => {
 
   return (
     <>
-      <Link href="/item/create" role={"button"}>
-        <IoMdAddCircleOutline />
-      </Link>
+      <SecondaryHeader buttons={secondaryHeaderButtons} />
       {items.map((item) => (
         <ToDoCard key={item.id} {...item} />
       ))}

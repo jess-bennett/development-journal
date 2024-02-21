@@ -1,11 +1,19 @@
 "use client";
 export const revalidate = 10;
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { TfiWrite } from "react-icons/tfi";
 
-import EntryCard, { Entry } from "@/src/components/EntryCard";
+import EntryCard, { Entry } from "../components/EntryCard";
+import SecondaryHeader from "../components/SecondaryHeader";
 
 const Home = () => {
   const [entries, setEntries] = useState<Entry[]>([]);
+  const secondaryHeaderButtons = [
+    <Link key={1} href="/entry/create" role={"button"}>
+      <TfiWrite />
+    </Link>,
+  ];
 
   useEffect(() => {
     const fetchEntries = async () => {
@@ -27,6 +35,7 @@ const Home = () => {
 
   return (
     <>
+      <SecondaryHeader buttons={secondaryHeaderButtons} />
       {entries.map((entry) => (
         <EntryCard key={entry.id} {...entry} />
       ))}

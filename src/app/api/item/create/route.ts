@@ -18,6 +18,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       title: bodyJson.title,
       content: bodyJson.content,
       skill: bodyJson.skill as Skill[],
+      complete: false,
     };
     await createNewItem(itemData);
     return new NextResponse("Item created successfully", { status: 200 });
@@ -31,6 +32,7 @@ async function createNewItem(itemData: {
   title: string;
   content: string;
   skill: Skill[];
+  complete: boolean;
 }): Promise<void> {
   await prisma.item.create({
     data: itemData,

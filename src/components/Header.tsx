@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { BsGrid3X3 } from "react-icons/bs";
+import { BsJournalCode } from "react-icons/bs";
 import { RiTodoLine } from "react-icons/ri";
-import { TfiWrite } from "react-icons/tfi";
 
 const Header = () => {
   return (
@@ -13,8 +13,8 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link href="/entry/create" role={"button"}>
-              <TfiWrite />
+            <Link href="/" role={"button"}>
+              <BsJournalCode />
             </Link>
           </li>
           <li>

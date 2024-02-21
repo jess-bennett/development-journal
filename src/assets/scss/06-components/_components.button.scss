@@ -12,6 +12,11 @@
   font-size: var(--ft-size-h4);
   cursor: pointer;
 
+  &--game {
+    @include theme(background, themeColor2);
+    @include theme(color, themeColor2Contrast);
+  }
+
   &--square {
     @include theme(background, themeColor2);
     @include theme(color, themeColor2Contrast);
