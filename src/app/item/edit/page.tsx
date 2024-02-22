@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { NextRequest } from "next/server";
-import { RxUpdate } from "react-icons/rx";
 
+import { iconConfig } from "@/src/utilities/iconConfig";
 import { Item, Skill } from "@prisma/client";
 
 const EditPage = (req: NextRequest) => {
@@ -49,6 +49,8 @@ const EditPage = (req: NextRequest) => {
       console.error(error);
     }
   };
+
+  const { iconUpdate } = iconConfig;
   return (
     <form
       className="c-entry-card"
@@ -93,7 +95,7 @@ const EditPage = (req: NextRequest) => {
       </div>
       <footer className="c-entry-card__footer">
         <button className="c-btn" type="submit">
-          <RxUpdate />
+          {iconUpdate}
         </button>
       </footer>
     </form>

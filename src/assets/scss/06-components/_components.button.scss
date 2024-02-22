@@ -12,9 +12,23 @@
   font-size: var(--ft-size-h4);
   cursor: pointer;
 
+  &:hover {
+    @include theme(background, themeColor4);
+  }
+
   &--game {
-    @include theme(background, themeColor2);
-    @include theme(color, themeColor2Contrast);
+    @include theme(background, themeColor1);
+    @include theme(color, themeColor2);
+    width: auto;
+    font-size: var(--ft-size-h3);
+
+    svg {
+      font-size: var(--ft-size-h2);
+    }
+
+    &:hover {
+      @include theme(background, themeColor1);
+    }
   }
 
   &--square {
@@ -32,9 +46,5 @@
     margin-left: 0;
     padding: 0;
     width: 4rem;
-  }
-
-  &:hover {
-    @include theme(background, themeColor4);
   }
 }

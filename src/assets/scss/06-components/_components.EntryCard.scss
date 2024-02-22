@@ -63,14 +63,7 @@
     &--board {
       padding-top: var(--st-size-normal);
       display: flex;
-
-      ol {
-        list-style: none;
-
-        li {
-          float: left;
-        }
-      }
+      justify-content: center;
     }
   }
 

@@ -2,16 +2,18 @@
 export const revalidate = 10;
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { IoMdAddCircleOutline } from "react-icons/io";
+
+import { iconConfig } from "@/src/utilities/iconConfig";
 
 import SecondaryHeader from "../../../components/SecondaryHeader";
 import ToDoCard, { Item } from "../../../components/ToDoCard";
 
 const ToDo = () => {
   const [items, setItems] = useState<Item[]>([]);
+  const { iconNewItem } = iconConfig;
   const secondaryHeaderButtons = [
     <Link key={1} href="/item/create" role={"button"}>
-      <IoMdAddCircleOutline />
+      {iconNewItem}
     </Link>,
   ];
 
@@ -36,9 +38,18 @@ const ToDo = () => {
   return (
     <>
       <SecondaryHeader buttons={secondaryHeaderButtons} />
-      {items.map((item) => (
-        <ToDoCard key={item.id} {...item} />
-      ))}
+      <h2>Incomplete Items</h2>
+      {items
+        .filter((item) => !item.complete)
+        .map((item) => (
+          <ToDoCard key={item.id} {...item}></ToDoCard>
+        ))}
+      <h2>Complete Items</h2>
+      {items
+        .filter((item) => item.complete)
+        .map((item) => (
+          <ToDoCard key={item.id} {...item}></ToDoCard>
+        ))}
     </>
   );
 };

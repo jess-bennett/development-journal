@@ -1,9 +1,8 @@
 "use client";
 import { SetStateAction, useState } from "react";
-import { LuSkipBack } from "react-icons/lu";
-import { MdOutlineSettingsBackupRestore } from "react-icons/md";
 
 import Board from "@/src/components/Board";
+import { iconConfig } from "@/src/utilities/iconConfig";
 
 import SecondaryHeader from "../../../components/SecondaryHeader";
 
@@ -22,17 +21,17 @@ const Game = () => {
   function jumpTo(nextMove: SetStateAction<number>) {
     setCurrentMove(nextMove);
   }
-
+  const { iconRestart, iconSkipBack } = iconConfig;
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
       description = (
         <>
-          {<LuSkipBack />} {move}
+          {iconSkipBack} {move}
         </>
       );
     } else {
-      description = <MdOutlineSettingsBackupRestore />;
+      description = <>{iconRestart}</>;
     }
     return (
       <button

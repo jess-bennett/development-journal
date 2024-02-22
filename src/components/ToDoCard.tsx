@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FiDelete, FiEdit } from "react-icons/fi";
 
 import { Skill } from "@prisma/client";
 
+import { iconConfig } from "../utilities/iconConfig";
 import { skillIcons } from "../utilities/types";
 
 export interface Item {
@@ -13,6 +13,7 @@ export interface Item {
   content: string;
   createdAt: Date;
   skill: Skill[];
+  complete: boolean;
 }
 
 async function deleteItem(id: string) {
@@ -20,6 +21,22 @@ async function deleteItem(id: string) {
     method: "DELETE",
   });
   window.location.reload();
+}
+
+async function markComplete(id: string, status: boolean) {
+  try {
+    const updatedStatus = {
+      complete: status,
+    };
+    await fetch(`/api/item/update/complete?id=${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedStatus),
+    });
+    window.location.reload();
+  } catch (error) {
+    console.error("Error marking item as complete:", error);
+  }
 }
 
 function toArray<T>(item: T | T[]): T[] {
@@ -39,15 +56,17 @@ const formatContent = (content: string) => {
   );
 };
 
-const ToDoCard = ({ id, title, content, createdAt, skill }: Item) => {
+const ToDoCard = ({ id, title, content, createdAt, skill, complete }: Item) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
   };
+  let formattedDate = new Date(createdAt).toLocaleString("en-GB", options);
   const skillsArray = toArray(skill);
   const formattedContent = formatContent(content);
+  const { iconEdit, iconDelete, iconComplete, iconIncomplete } = iconConfig;
   return (
     <article className="c-entry-card">
       <header className="c-entry-card__header">
@@ -56,19 +75,26 @@ const ToDoCard = ({ id, title, content, createdAt, skill }: Item) => {
             <span key={idx}>{skillIcons[skill]}</span>
           ))}
         </div>
-        <p className="c-entry-card__date">
-          {createdAt.toLocaleString("en-GB", options)}
-        </p>
+        <p className="c-entry-card__date">{formattedDate}</p>
       </header>
       <h2 className="c-entry-card__title">{title}</h2>
       {formattedContent}
       <footer className="c-entry-card__footer">
         <button className="c-btn" onClick={() => deleteItem(id)}>
-          <FiDelete />
+          {iconDelete}
         </button>
         <Link className="c-btn" href={`/item/edit?id=${id}`} role="button">
-          <FiEdit />
+          {iconEdit}
         </Link>
+        {complete ? (
+          <button className="c-btn" onClick={() => markComplete(id, false)}>
+            {iconIncomplete}
+          </button>
+        ) : (
+          <button className="c-btn" onClick={() => markComplete(id, true)}>
+            {iconComplete}
+          </button>
+        )}
       </footer>
     </article>
   );

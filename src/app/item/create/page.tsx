@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { FiSend } from "react-icons/fi";
 
+import { iconConfig } from "@/src/utilities/iconConfig";
 import { Skill } from "@prisma/client";
 
 const CreatePage = () => {
@@ -28,7 +28,7 @@ const CreatePage = () => {
       console.error(error);
     }
   };
-
+  const { iconCreate } = iconConfig;
   return (
     <form className="c-entry-card" onSubmit={submitData}>
       <div className="c-entry-card__title">
@@ -57,7 +57,7 @@ const CreatePage = () => {
       </div>
       <footer className="c-entry-card__footer">
         <button className="c-btn" type="submit">
-          <FiSend />
+          {iconCreate}
         </button>
       </footer>
     </form>

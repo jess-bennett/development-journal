@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 
 import Square from "@/src/components/Square";
 import calculateWinner from "@/src/utilities/calculateWinner";

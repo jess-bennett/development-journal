@@ -22,6 +22,10 @@
       li {
         margin-left: var(--st-size-wide);
 
+        &:hover {
+          transform: scale(1.5);
+        }
+
         a {
           font-size: var(--ft-size-h2);
           @include theme(color, themeColor2Contrast);
@@ -37,9 +41,15 @@
     padding-bottom: 0;
     justify-content: center;
 
-    a {
-      @include theme(color, themeColor2);
-      font-size: var(--ft-size-h2);
+    div {
+      a {
+        @include theme(color, themeColor2);
+        font-size: var(--ft-size-h2);
+      }
+
+      &:hover {
+        transform: scale(1.5);
+      }
     }
   }
 }

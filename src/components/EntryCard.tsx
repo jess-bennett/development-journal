@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FiDelete, FiEdit } from "react-icons/fi";
 
 import { Skill } from "@prisma/client";
 
+import { iconConfig } from "../utilities/iconConfig";
 import { skillIcons } from "../utilities/types";
 
 export interface Entry {
@@ -46,8 +46,10 @@ const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
     month: "long",
     day: "numeric",
   };
+  let formattedDate = new Date(createdAt).toLocaleString("en-GB", options);
   const skillsArray = toArray(skill);
   const formattedContent = formatContent(content);
+  const { iconEdit, iconDelete } = iconConfig;
   return (
     <article className="c-entry-card">
       <header className="c-entry-card__header">
@@ -56,18 +58,16 @@ const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
             <span key={idx}>{skillIcons[skill]}</span>
           ))}
         </div>
-        <p className="c-entry-card__date">
-          {createdAt.toLocaleString("en-GB", options)}
-        </p>
+        <p className="c-entry-card__date">{formattedDate}</p>
       </header>
       <h2 className="c-entry-card__title">{title}</h2>
       {formattedContent}
       <footer className="c-entry-card__footer">
         <button className="c-btn" onClick={() => deleteEntry(id)}>
-          <FiDelete />
+          {iconDelete}
         </button>
         <Link className="c-btn" href={`/entry/edit?id=${id}`} role="button">
-          <FiEdit />
+          {iconEdit}
         </Link>
       </footer>
     </article>

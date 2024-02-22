@@ -2,16 +2,17 @@
 export const revalidate = 10;
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { TfiWrite } from "react-icons/tfi";
 
 import EntryCard, { Entry } from "../components/EntryCard";
 import SecondaryHeader from "../components/SecondaryHeader";
+import { iconConfig } from "../utilities/iconConfig";
 
 const Home = () => {
   const [entries, setEntries] = useState<Entry[]>([]);
+  const { iconNewEntry } = iconConfig;
   const secondaryHeaderButtons = [
     <Link key={1} href="/entry/create" role={"button"}>
-      <TfiWrite />
+      {iconNewEntry}
     </Link>,
   ];
 
