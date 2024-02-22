@@ -38,18 +38,22 @@ const ToDo = () => {
   return (
     <>
       <SecondaryHeader buttons={secondaryHeaderButtons} />
-      <h2>Incomplete Items</h2>
-      {items
-        .filter((item) => !item.complete)
-        .map((item) => (
-          <ToDoCard key={item.id} {...item}></ToDoCard>
-        ))}
-      <h2>Complete Items</h2>
-      {items
-        .filter((item) => item.complete)
-        .map((item) => (
-          <ToDoCard key={item.id} {...item}></ToDoCard>
-        ))}
+      <div className="o-container--column">
+        <h2>Incomplete Items</h2>
+        {items
+          .filter((item) => !item.complete)
+          .map((item) => (
+            <ToDoCard key={item.id} {...item}></ToDoCard>
+          ))}
+      </div>
+      <div className="o-container--column">
+        <h2>Complete Items</h2>
+        {items
+          .filter((item) => item.complete)
+          .map((item) => (
+            <ToDoCard key={item.id} {...item}></ToDoCard>
+          ))}
+      </div>
     </>
   );
 };
