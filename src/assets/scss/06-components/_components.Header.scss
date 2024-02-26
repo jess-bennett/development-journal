@@ -22,12 +22,33 @@
       li {
         margin-left: var(--st-size-wide);
 
+        &:hover {
+          transform: scale(1.5);
+        }
+
         a {
-          font-family: $font-subheadings;
           font-size: var(--ft-size-h2);
           @include theme(color, themeColor2Contrast);
-          @include anchorHover(gradient);
         }
+      }
+    }
+  }
+
+  &--secondary {
+    flex-basis: 100%;
+    @include theme(background, themeColor1);
+    min-height: 2.5rem;
+    padding-bottom: 0;
+    justify-content: center;
+
+    div {
+      a {
+        @include theme(color, themeColor2);
+        font-size: var(--ft-size-h2);
+      }
+
+      &:hover {
+        transform: scale(1.5);
       }
     }
   }

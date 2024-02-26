@@ -10,6 +10,10 @@
       @include theme(color, themeColor2Contrast);
       font-size: var(--ft-size-h1);
     }
+
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 
   & svg {

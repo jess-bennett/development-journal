@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
+import { iconConfig } from "../utilities/iconConfig";
+
 const Header = () => {
+  const { iconJournal, iconToDo, iconTicTacToe } = iconConfig;
   return (
     <header className="c-site-header">
       <Link href="/">
@@ -10,8 +13,18 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link href="/entry/create" role={"button"}>
-              New Entry
+            <Link href="/" role={"button"}>
+              {iconJournal}
+            </Link>
+          </li>
+          <li>
+            <Link href="/features/to-do" role={"button"}>
+              {iconToDo}
+            </Link>
+          </li>
+          <li>
+            <Link href="/features/tic-tac-toe" role={"button"}>
+              {iconTicTacToe}
             </Link>
           </li>
         </ul>

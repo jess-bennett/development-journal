@@ -6,4 +6,16 @@
   display: flex;
   gap: var(--st-size-narrow);
   flex-wrap: wrap;
+
+  &--column {
+    width: calc(50% - (var(--st-size-narrow) / 2));
+
+    &__header {
+      text-align: center;
+      font-family: $font-headings;
+      font-size: var(--ft-size-h2);
+      margin-top: 0;
+      @include theme(color, themeColor2);
+    }
+  }
 }

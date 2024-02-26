@@ -7,19 +7,36 @@ import { Skill } from "@prisma/client";
 import { iconConfig } from "../utilities/iconConfig";
 import { skillIcons } from "../utilities/types";
 
-export interface Entry {
+export interface Item {
   id: string;
   title: string;
   content: string;
   createdAt: Date;
   skill: Skill[];
+  complete: boolean;
 }
 
-async function deleteEntry(id: string) {
-  await fetch(`/api/entry/delete?id=${id}`, {
+async function deleteItem(id: string) {
+  await fetch(`/api/item/delete?id=${id}`, {
     method: "DELETE",
   });
   window.location.reload();
+}
+
+async function markComplete(id: string, status: boolean) {
+  try {
+    const updatedStatus = {
+      complete: status,
+    };
+    await fetch(`/api/item/update/complete?id=${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedStatus),
+    });
+    window.location.reload();
+  } catch (error) {
+    console.error("Error marking item as complete:", error);
+  }
 }
 
 function toArray<T>(item: T | T[]): T[] {
@@ -39,7 +56,7 @@ const formatContent = (content: string) => {
   );
 };
 
-const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
+const ToDoCard = ({ id, title, content, createdAt, skill, complete }: Item) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
@@ -49,7 +66,7 @@ const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
   let formattedDate = new Date(createdAt).toLocaleString("en-GB", options);
   const skillsArray = toArray(skill);
   const formattedContent = formatContent(content);
-  const { iconEdit, iconDelete } = iconConfig;
+  const { iconEdit, iconDelete, iconComplete, iconIncomplete } = iconConfig;
   return (
     <article className="c-entry-card">
       <header className="c-entry-card__header">
@@ -63,15 +80,24 @@ const EntryCard = ({ id, title, content, createdAt, skill }: Entry) => {
       <h2 className="c-entry-card__title">{title}</h2>
       {formattedContent}
       <footer className="c-entry-card__footer">
-        <button className="c-btn" onClick={() => deleteEntry(id)}>
+        <button className="c-btn" onClick={() => deleteItem(id)}>
           {iconDelete}
         </button>
-        <Link className="c-btn" href={`/entry/edit?id=${id}`} role="button">
+        <Link className="c-btn" href={`/item/edit?id=${id}`} role="button">
           {iconEdit}
         </Link>
+        {complete ? (
+          <button className="c-btn" onClick={() => markComplete(id, false)}>
+            {iconIncomplete}
+          </button>
+        ) : (
+          <button className="c-btn" onClick={() => markComplete(id, true)}>
+            {iconComplete}
+          </button>
+        )}
       </footer>
     </article>
   );
 };
 
-export default EntryCard;
+export default ToDoCard;
