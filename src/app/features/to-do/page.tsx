@@ -39,7 +39,7 @@ const ToDo = () => {
     <>
       <SecondaryHeader buttons={secondaryHeaderButtons} />
       <div className="o-container--column">
-        <h2>Incomplete Items</h2>
+        <h2 className="o-container--column__header">Incomplete Items</h2>
         {items
           .filter((item) => !item.complete)
           .map((item) => (
@@ -47,7 +47,7 @@ const ToDo = () => {
           ))}
       </div>
       <div className="o-container--column">
-        <h2>Complete Items</h2>
+        <h2 className="o-container--column__header">Complete Items</h2>
         {items
           .filter((item) => item.complete)
           .map((item) => (
