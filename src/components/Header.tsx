@@ -4,7 +4,7 @@ import Link from "next/link";
 import { iconConfig } from "../utilities/iconConfig";
 
 const Header = () => {
-  const { iconJournal, iconToDo, iconTicTacToe } = iconConfig;
+  const { iconCart, iconJournal, iconToDo, iconTicTacToe } = iconConfig;
   return (
     <header className="c-site-header">
       <Link href="/">
@@ -25,6 +25,11 @@ const Header = () => {
           <li>
             <Link href="/features/tic-tac-toe" role={"button"}>
               {iconTicTacToe}
+            </Link>
+          </li>
+          <li>
+            <Link href="/features/checkout" role={"button"}>
+              {iconCart}
             </Link>
           </li>
         </ul>

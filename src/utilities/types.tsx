@@ -1,6 +1,9 @@
 import { BiLogoNodejs } from "react-icons/bi";
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import { FaRedhat } from "react-icons/fa6";
 import {
   GiArtificialIntelligence,
+  GiCoalPile,
   GiDatabase,
   GiSkullCrossedBones,
 } from "react-icons/gi";
@@ -44,4 +47,10 @@ export const skillIcons: Record<Skill, React.JSX.Element> = {
   SASS: <SiSass title="Sass" />,
   SQL: <TbSql title="SQL" />,
   TYPESCRIPT: <SiTypescript title="TypeScript" />,
+};
+
+export const categoryIcons = {
+  Headgear: <FaRedhat title="Headgear" />,
+  Material: <GiCoalPile title="Material" />,
+  Fuel: <BsFillFuelPumpFill title="Fuel" />,
 };

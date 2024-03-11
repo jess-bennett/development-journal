@@ -1,5 +1,5 @@
 import { BsGrid3X3 } from "react-icons/bs";
-import { BsJournalCode } from "react-icons/bs";
+import { BsCart4, BsJournalCode } from "react-icons/bs";
 import { FaCheckCircle, FaRegCheckCircle } from "react-icons/fa";
 import { FiDelete, FiEdit } from "react-icons/fi";
 import { FiSend } from "react-icons/fi";
@@ -24,4 +24,5 @@ export const iconConfig = {
   iconSkipBack: <LuSkipBack />,
   iconComplete: <FaRegCheckCircle />,
   iconIncomplete: <FaCheckCircle />,
+  iconCart: <BsCart4 />,
 };
