@@ -49,7 +49,7 @@ export const skillIcons: Record<Skill, React.JSX.Element> = {
   TYPESCRIPT: <SiTypescript title="TypeScript" />,
 };
 
-export const categoryIcons = {
+export const categoryIcons: Record<string, React.JSX.Element> = {
   Headgear: <FaRedhat title="Headgear" />,
   Material: <GiCoalPile title="Material" />,
   Fuel: <BsFillFuelPumpFill title="Fuel" />,

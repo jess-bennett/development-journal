@@ -8,6 +8,12 @@
   flex-basis: 0;
   position: relative;
 
+  &--checkout {
+    @extend .c-entry-card;
+    flex-basis: 100%;
+    margin-top: var(--st-size-wide);
+  }
+
   &__content {
     font-family: $font-body;
     font-size: var(--ft-size-body);
