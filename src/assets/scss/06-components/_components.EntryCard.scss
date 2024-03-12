@@ -96,6 +96,11 @@
     padding-bottom: var(--st-size-narrow);
   }
 
+  &__subheader {
+    font-family: $font-headings;
+    font-size: var(--ft-size-h3);
+  }
+
   &__title {
     @include theme(background, themeColor4);
     @include theme(color, themeColor4Contrast);

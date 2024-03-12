@@ -1,27 +1,35 @@
 "use client";
 import { useEffect, useState } from "react";
-import { productData, totalPrice } from "checkout-library/src";
+import {
+  calculateDiscounts,
+  calculateSubtotals,
+  calculateTotalPrice,
+  productData,
+} from "checkout-library/src";
 
 import CheckoutCard from "@/src/components/CheckoutCard";
 import ProductCard from "@/src/components/ProductCard";
-
-interface SelectedProduct {
-  id: string;
-  quantity: number;
-}
 
 const Checkout = () => {
   const { products } = productData;
   const [productQuantities, setProductQuantities] = useState<{
     [id: string]: number;
   }>({});
-  const [pricetoDisplay, setPricetoDisplay] = useState(0);
+  const [totaltoDisplay, setTotaltoDisplay] = useState(0);
+  const [subtotalstoDisplay, setSubtotalstoDisplay] = useState<{
+    [id: string]: { subtotal: number; description: string };
+  }>({});
+  const [discounttoDisplay, setdiscounttoDisplay] = useState<{
+    [category: string]: number;
+  }>({});
 
   useEffect(() => {
-    // Calculate the total price using totalPrice function
-    const total = totalPrice(productQuantities);
-    // Update pricetoDisplay state
-    setPricetoDisplay(total);
+    const discountValues = calculateDiscounts(productQuantities); // Calculate subtotals
+    setdiscounttoDisplay(discountValues);
+    const subtotalsData = calculateSubtotals(productQuantities); // Calculate subtotals
+    setSubtotalstoDisplay(subtotalsData);
+    const total = calculateTotalPrice(productQuantities);
+    setTotaltoDisplay(total);
   }, [productQuantities]);
 
   const updateProductQuantity = (id: string, quantity: number) => {
@@ -30,7 +38,11 @@ const Checkout = () => {
 
   return (
     <>
-      <CheckoutCard price={pricetoDisplay} />
+      <CheckoutCard
+        price={totaltoDisplay}
+        items={subtotalstoDisplay}
+        discounts={discounttoDisplay}
+      />
       {products.map((product) => (
         <ProductCard
           key={product.id}
