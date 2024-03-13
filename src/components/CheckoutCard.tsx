@@ -2,23 +2,23 @@
 import React from "react";
 
 export interface CheckoutItem {
-  [id: string]: { subtotal: number; description: string };
-}
-
-interface CheckoutDiscount {
-  [category: string]: number;
+  [id: string]: { quantity: number; subtotal: number; description: string };
 }
 
 interface CheckoutCardProps {
   price: number;
   items: CheckoutItem;
-  discounts: CheckoutDiscount;
+  subtotal: number;
+  discount: number;
+  tax: number;
 }
 
 const CheckoutCard: React.FC<CheckoutCardProps> = ({
   price,
   items,
-  discounts,
+  subtotal,
+  discount,
+  tax,
 }) => {
   return (
     <article className="c-entry-card--checkout">
@@ -31,21 +31,20 @@ const CheckoutCard: React.FC<CheckoutCardProps> = ({
       <ul className="c-entry-card__content">
         {Object.entries(items)
           .filter(([id, { subtotal }]) => subtotal !== 0)
-          .map(([id, { subtotal, description }]) => (
-            <li key={id}>{`${description}: £${subtotal}`}</li>
-          ))}
-      </ul>
-      <h3 className="c-entry-card__subheader">Discounts</h3>
-      <ul className="c-entry-card__content">
-        {Object.entries(discounts)
-          .filter(([category, discountValue]) => discountValue !== 0)
-          .map(([category, discountValue]) => (
-            <li key={category}>{`${category}: £${discountValue.toFixed(
+          .map(([id, { quantity, subtotal, description }]) => (
+            <li key={id}>{`${description} x(${quantity}): £${subtotal.toFixed(
               2
             )}`}</li>
           ))}
       </ul>
-      <footer className="c-entry-card__footer">{`£${price.toFixed(2)}`}</footer>
+      <footer className="c-entry-card__footer">
+        <ul>
+          <li>Subotal: {`£${subtotal.toFixed(2)}`}</li>
+          <li>Discount: {`£${discount.toFixed(2)}`}</li>
+          <li>Tax: {`£${tax.toFixed(2)}`}</li>
+          <li>Total: {`£${price.toFixed(2)}`}</li>
+        </ul>
+      </footer>
     </article>
   );
 };
