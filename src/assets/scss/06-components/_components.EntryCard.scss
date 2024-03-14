@@ -88,6 +88,10 @@
     position: absolute;
     bottom: var(--st-size-wide);
     right: var(--st-size-wide);
+
+    li {
+      list-style-type: none;
+    }
   }
 
   &__header {

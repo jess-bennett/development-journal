@@ -6,19 +6,23 @@ export interface CheckoutItem {
 }
 
 interface CheckoutCardProps {
-  price: number;
   items: CheckoutItem;
   subtotal: number;
   discount: number;
   tax: number;
+  grossTotal: number;
+  shipping: number;
+  netTotal: number;
 }
 
 const CheckoutCard: React.FC<CheckoutCardProps> = ({
-  price,
   items,
   subtotal,
   discount,
   tax,
+  grossTotal,
+  shipping,
+  netTotal,
 }) => {
   return (
     <article className="c-entry-card--checkout">
@@ -40,9 +44,11 @@ const CheckoutCard: React.FC<CheckoutCardProps> = ({
       <footer className="c-entry-card__footer">
         <ul>
           <li>Subotal: {`£${subtotal.toFixed(2)}`}</li>
-          <li>Discount: {`£${discount.toFixed(2)}`}</li>
-          <li>Tax: {`£${tax.toFixed(2)}`}</li>
-          <li>Total: {`£${price.toFixed(2)}`}</li>
+          <li>- Discount: {`£${discount.toFixed(2)}`}</li>
+          <li>+ Tax: {`£${tax.toFixed(2)}`}</li>
+          <li>Gross Total: {`£${grossTotal.toFixed(2)}`}</li>
+          <li>+ Shipping: {`£${shipping.toFixed(2)}`}</li>
+          <li>Net Total: {`£${netTotal.toFixed(2)}`}</li>
         </ul>
       </footer>
     </article>
