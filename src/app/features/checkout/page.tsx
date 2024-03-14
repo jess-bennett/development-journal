@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import {
   calculateDataPerItem,
   calculateGrossTotal,
@@ -16,56 +16,68 @@ import ProductCard from "@/src/components/ProductCard";
 
 const Checkout = () => {
   const { products } = productData;
-  const [productQuantities, setProductQuantities] = useState<{
-    [id: string]: number;
-  }>({});
-  const [itemDatatoDisplay, setItemDatatoDisplay] = useState<{
-    [id: string]: { quantity: number; subtotal: number; description: string };
-  }>({});
-  const [subtotaltoDisplay, setSubtotaltoDisplay] = useState(0);
-  const [discounttoDisplay, setDiscounttoDisplay] = useState(0);
-  const [taxtoDisplay, setTaxtoDisplay] = useState(0);
-  const [grossTotaltoDisplay, setGrossTotaltoDisplay] = useState(0);
-  const [shippingtoDisplay, setShippingtoDisplay] = useState(0);
-  const [netTotaltoDisplay, setNetTotaltoDisplay] = useState(0);
+  const [checkoutData, setCheckoutData] = useState({
+    productQuantities: {},
+    itemData: {},
+    subtotal: 0,
+    discount: 0,
+    tax: 0,
+    grossTotal: 0,
+    shipping: 0,
+    netTotal: 0,
+  });
 
   useEffect(() => {
-    const itemData = calculateDataPerItem(productQuantities);
-    setItemDatatoDisplay(itemData);
-    const subtotal = calculateSubtotal(productQuantities);
-    setSubtotaltoDisplay(subtotal);
-    const discount = calculateTotalDiscount(productQuantities);
-    setDiscounttoDisplay(discount);
-    const tax = calculateTotalTax(productQuantities);
-    setTaxtoDisplay(tax);
-    const grossTotal = calculateGrossTotal(productQuantities);
-    setGrossTotaltoDisplay(grossTotal);
-    const shipping = calculateShippingCost(productQuantities);
-    setShippingtoDisplay(shipping);
-    const netTotal = calculateNetTotal(productQuantities);
-    setNetTotaltoDisplay(netTotal);
-  }, [productQuantities]);
+    const itemData = calculateDataPerItem(checkoutData.productQuantities);
+    const subtotal = calculateSubtotal(checkoutData.productQuantities);
+    const discount = calculateTotalDiscount(checkoutData.productQuantities);
+    const tax = calculateTotalTax(checkoutData.productQuantities);
+    const grossTotal = calculateGrossTotal(checkoutData.productQuantities);
+    const shipping = calculateShippingCost(checkoutData.productQuantities);
+    const netTotal = calculateNetTotal(checkoutData.productQuantities);
+
+    setCheckoutData((prevData) => ({
+      ...prevData,
+      itemData,
+      subtotal,
+      discount,
+      tax,
+      grossTotal,
+      shipping,
+      netTotal,
+    }));
+  }, [checkoutData.productQuantities]);
 
   const updateProductQuantity = (id: string, quantity: number) => {
-    setProductQuantities({ ...productQuantities, [id]: quantity });
+    setCheckoutData((prevData) => ({
+      ...prevData,
+      productQuantities: {
+        ...prevData.productQuantities,
+        [id]: quantity,
+      },
+    }));
   };
 
   return (
     <>
       <CheckoutCard
-        items={itemDatatoDisplay}
-        subtotal={subtotaltoDisplay}
-        discount={discounttoDisplay}
-        tax={taxtoDisplay}
-        grossTotal={grossTotaltoDisplay}
-        shipping={shippingtoDisplay}
-        netTotal={netTotaltoDisplay}
+        items={checkoutData.itemData}
+        subtotal={checkoutData.subtotal}
+        discount={checkoutData.discount}
+        tax={checkoutData.tax}
+        grossTotal={checkoutData.grossTotal}
+        shipping={checkoutData.shipping}
+        netTotal={checkoutData.netTotal}
       />
       {products.map((product) => (
         <ProductCard
           key={product.id}
           {...product}
-          quantity={productQuantities[product.id] || 0}
+          quantity={
+            (checkoutData.productQuantities as Record<string, number>)[
+              product.id
+            ] || 0
+          }
           updateProductQuantity={updateProductQuantity}
         />
       ))}
